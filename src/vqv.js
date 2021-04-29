@@ -21,7 +21,8 @@ const vqv = (nome, idade) => {
     return undefined;
   }
   let result = '';
-  result = `Oi, meu nome é ${nome}!\nTenho ${idade} anos,\ntrabalho na Trybe e mando muito em programação!\n#VQV!`
+  result = `Oi, meu nome é ${nome}!\nTenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!\n#VQV!`;
   return result;
 };
 
