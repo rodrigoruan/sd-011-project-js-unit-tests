@@ -23,9 +23,9 @@ const circle = (radius) => {
   if (!radius) { return undefined; }
   return {
     radius,
-    area: PI * radius * radius,
-    circumference: 2 * PI * radius,
+    area: Math.trunc(PI * radius * radius),
+    circumference: Math.trunc(2 * PI * radius),
   };
 };
-
+console.log(circle(3));
 module.exports = circle;
