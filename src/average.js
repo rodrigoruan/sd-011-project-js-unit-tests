@@ -12,13 +12,13 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  let teste = average.every((e) => typeof e === 'number');
-  if (!average.length || teste === false) {
-    return ('Undefined');
+const average = (arrayEx) => {
+  let teste = arrayEx.every((e) => typeof e === 'number');
+  if (!arrayEx.length || teste === false) {
+    return (undefined);
   }
   
-  return (Math.round(average.reduce((total, numero) => total + numero, 0) / average.length));
+  return (Math.round(arrayEx.reduce((total, numero) => total + numero, 0) / arrayEx.length));
 };
 
 module.exports = average;
