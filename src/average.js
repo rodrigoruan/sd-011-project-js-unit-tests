@@ -12,6 +12,21 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
-//add minha implementation
+const average = (arrayNumber) => {
+  let sum = 0;
+  let verifyNaN = false;
+  for (let content of arrayNumber) {
+    if (typeof content !== 'number') {
+      verifyNaN = true;
+      break;
+    }
+    sum += content;
+  }
+  let media = Number((sum / arrayNumber.length).toFixed());
+  if (verifyNaN === true || arrayNumber.length === 0) {
+    return undefined;
+  }
+  return media;
+};
+
 module.exports = average;
