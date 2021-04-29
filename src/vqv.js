@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-
+const assert = require('assert');
 /*
   Use template literals para escrever uma função que,
   recebe seu nome e sua idade e retorna o parágrafo descrito abaixo.
@@ -16,6 +16,27 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  let final;
+  if (typeof idade === 'undefined' || typeof nome === 'undefined') {
+    final = undefined;
+  } else {
+    // prettier-ignore
+    final = `Oi, meu nome é ${nome}!\n`
+      + `Tenho ${idade} anos,\n`
+      + 'trabalho na Trybe e mando muito em programação!\n'
+      + '#VQV!';
+  }
+  return final;
+};
 
 module.exports = vqv;
+
+console.log(vqv('PH', '34'));
+
+// {
+//   final = `Oi, meu nome é ${nome}!
+// Tenho ${idade} anos,
+// trabalho na Trybe e mando muito em programação!
+// #VQV!`;
+// }
