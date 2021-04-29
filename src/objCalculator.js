@@ -22,19 +22,19 @@
 const calculator = {
   add: (a, b) => {
     const summ = a + b;
-    return summ;
+    return Math.floor(summ);
   },
   mult: (a, b) => {
     const mult = a * b;
-    return mult;
+    return Math.floor(mult);
   },
   div: (a, b) => {
     const div = a / b;
-    return div;
+    return Math.floor(div);
   },
   sub: (a, b) => {
     const sub = a - b;
-    return sub;
+    return Math.floor(sub);
   },
 };
 module.exports = calculator;
