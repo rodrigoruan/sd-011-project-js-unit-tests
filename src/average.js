@@ -19,8 +19,8 @@ const average = (arr) => {
       total += arr[index];
     } else if (arr[index] === 'string') {
       return undefined;
-    } else if (arr.length < 0) {
-      return undefined
+    } else if (arr.length === 0) {
+      return undefined;
     }
   }
   return Math.round(total / arr.length);
