@@ -38,5 +38,5 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-
+console.log(Object.values(productDetails()));
 module.exports = productDetails;
