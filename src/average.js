@@ -27,11 +27,12 @@ const average = (array) => {
   }
 
   sumDivision = sum / array.length;
+  
   if (sumDivision % 2 !== 0) {
     const sumRound = Math.round(sumDivision);
     return sumRound;
   }
-  
+
   return sumDivision;  
 };
 
