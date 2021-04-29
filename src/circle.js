@@ -23,9 +23,10 @@ const circle = (radius) => {
   if (!radius) { return undefined; }
   return {
     radius,
-    area: Number((PI * radius * radius).toPrecision(4)),
+    area: Number((PI * radius * radius).toFixed()),
     circumference: Number((2 * PI * radius).toPrecision(4)),
   };
 };
 
+console.log(circle(3));
 module.exports = circle;
