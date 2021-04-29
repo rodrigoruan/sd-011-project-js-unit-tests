@@ -13,11 +13,13 @@
 */
 const average = (array) => {
   let accumulator = 0;
- if (array.length === 0){
-    return ;
+  if (array.length === 0) {
+    return;
   }
   for (let i = 0; i < array.length; i += 1) {
-    if(typeof(array[i])!== 'number'){return ;}
+    if (typeof array[i] !== 'number') {
+      return;
+    }
     accumulator += array[i];
   }
   let total = accumulator / array.length;
