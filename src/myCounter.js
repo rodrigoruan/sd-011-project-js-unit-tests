@@ -18,9 +18,15 @@
 const myCounter = () => {
   let myArray = [];
   for (let firstCounter = 0; firstCounter <= 3; firstCounter += 1) {
+<<<<<<< HEAD
     myArray.push(firstCounter);
     for (let secondCounter = 2; secondCounter <= 3; secondCounter += 1) {
       myArray.push(secondCounter);
+=======
+    myArray.push(counter);
+    for (let secondCounter = 2; secondCounter <= 3; secondCounter += 1) {
+      myArray.push(counter);
+>>>>>>> 0b5700a5e08ef20097224765b57d5b5d47c335b6
     }
   }
   return myArray;
