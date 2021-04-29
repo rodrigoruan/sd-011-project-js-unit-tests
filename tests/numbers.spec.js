@@ -36,7 +36,5 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     const param4 = [' '];
     const funcTest4 = numbers(param4);
     assert.strictEqual(funcTest4, false);
-
-
   });
 });
