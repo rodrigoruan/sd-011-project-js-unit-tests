@@ -87,6 +87,6 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     workingInterface.order('coxinha');
     workingInterface.order('brigadeiro');
 
-    assert.strictEqual(workingInterface.pay(), 14.69);
+    assert.strictEqual(workingInterface.pay(), 20.08);
   });
 });
