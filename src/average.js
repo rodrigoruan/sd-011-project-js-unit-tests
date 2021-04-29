@@ -13,7 +13,7 @@
 */
 
 const average = (dividendo) => {
-dividendo = [1, 5, 4]
+dividendo = [1, 5, 4];
 const divisor = dividendo.split(' ').length;
 console.log(dividendo / divisor);
 };
