@@ -12,8 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-//const average = (array) => array.reduce((total, number) => (total + number)) / array.length;
-
 function average(array) {
   if (array.length === 0) {
     return undefined;
