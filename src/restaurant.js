@@ -87,7 +87,7 @@ const createMenu = (menuObject) => ({
   consumption: [],
   fetchMenu: () => menuObject,
   order: addItem,
-  pay: function() {
+  pay() {
     let payout = 0;
     const menu = this.fetchMenu();
     for (let item of this.consumption) {
@@ -97,7 +97,7 @@ const createMenu = (menuObject) => ({
 
     payout = Math.round(payout * 110) / 100;
     return payout;
-  }
+  },
 });
 
 module.exports = createMenu;
