@@ -14,15 +14,15 @@
 
 const average = (array) => {
   let media = 0;
-  let retorno = media / array.length;
   for (let key of array) {
+    media += Math.round(key);
     if (typeof (key) !== 'number' || array.length === 0) {
-      retorno = undefined;
-    } else {
-      media += Math.round(key);
+      return undefined;
     }
   }
-  return retorno;
+  return media / array.length;
 };
 
 module.exports = average;
+
+console.log(average([3, 4, 5]))
