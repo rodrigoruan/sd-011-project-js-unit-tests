@@ -22,5 +22,4 @@ function average(array) {
   }
   return Math.round(addValue / array.length);
 }
-console.log(average([]));
 module.exports = average;
