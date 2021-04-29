@@ -38,6 +38,5 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     output = numbers(parameters);
     expected = false
     assert.strictEqual(output, expected);
-
   });
 });
