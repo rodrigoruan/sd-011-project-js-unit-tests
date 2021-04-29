@@ -22,7 +22,7 @@ const createStudent = (student) => {
       const goodPerson = 'Eita pessoa boa!';
       return goodPerson;
     },
-  }
+  };
   return objectStudent;
 };
 
