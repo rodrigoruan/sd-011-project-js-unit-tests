@@ -27,3 +27,9 @@ const average = (array) => {
 };
 
 module.exports = average;
+
+// lessons learned here: 
+// 1- test if array is empty is to check if array.length === 0;
+// 2- the empty's test needs to be before the for function cause for cannot iniciate if array is empty;
+// 3- I can put an return after many parts of the function;
+// 4- to round a number I can use Math.round().
