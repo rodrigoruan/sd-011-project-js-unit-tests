@@ -43,6 +43,4 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara')[0].details.productId === 'Alcool gel123', true)
     assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara')[1].details.productId === 'Máscara123', true)
   });
-    
   });
-});
