@@ -87,7 +87,7 @@ const createMenu = (object) => ({
   },
   pay() {
     const products = Object.assign({}, ...Object.values(object));
-    return parseFloat(this.consumption.reduce((acc, item) => acc + products[item], 0).toFixed(1));
+    return parseFloat(this.consumption.reduce((acc, item) => acc + products[item], 0).toFixed(1)) * 1.1;
   },
 });
 
