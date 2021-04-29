@@ -11,7 +11,7 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
+/* Matheus Alexandre, Rodolfo Ramos, Jean, Igor Mendes e Jonhata Pontes (todos de Turma 11) Me ajudaram a resolver essa questão. */
 const average = (array) => {
   let numberArry = 0;
   if (array.length === 0) return undefined;
