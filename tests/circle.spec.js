@@ -28,7 +28,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    assert.strictEqual(typeof circle, 'function');
+    assert.strictEqual(typeof circle(1), 'object');
 
     // Teste se o objeto retornado tem 3 entradas.
     assert.strictEqual(Object.keys(circle(1)).length, 3);
