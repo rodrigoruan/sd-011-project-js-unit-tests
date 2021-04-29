@@ -22,7 +22,7 @@ const average = (array) => {
 
   for (let i = 0; i < array.length; i += 1) {
     if (typeof array[i] !== 'number') {
-      return undefined
+      return undefined;
     }
     resultAverage += array[i];
     roundResult = Math.round(resultAverage / array.length);
