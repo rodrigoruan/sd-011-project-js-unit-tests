@@ -19,7 +19,7 @@ const createStudent = (nome) => {
   const ojbectStudent = {
     name: nome,
     feedback() {
-      const goodPerson = 'Eita pessoa boa!'
+      const goodPerson = 'Eita pessoa boa!';
       return goodPerson;
     },
   };
