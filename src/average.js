@@ -39,5 +39,4 @@ const number = (array) => {
 
 console.log(number(54));
 
-
 module.exports = average;
