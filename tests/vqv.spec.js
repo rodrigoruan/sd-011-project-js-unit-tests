@@ -16,7 +16,7 @@ const vqv = require('../src/vqv.js');
       #VQV!'
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
-*/
+  */
 
 describe('3 - Implemente a função `vqv`', () => {
   it('Verifica se a função `vqv` retorna a frase esperada com nome e idade', () => {
