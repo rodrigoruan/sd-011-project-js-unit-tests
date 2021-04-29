@@ -28,8 +28,8 @@ const average = (array) => {
   }
   if (notError) {
     result = sum / array.length;
-    result = result.toFixed(0)
-    result = Number(result)
+    result = result.toFixed(0);
+    result = Number(result);
   }
   return result;
 };
