@@ -15,14 +15,14 @@
 const average = (arr) => {
   let sum = 0;
   for (let index = 0; index < arr.length; index += 1) {
-    sum += arr[index]
-  };
+    sum += arr[index];
+  }
   
-  if (typeof(sum) !== typeof(1)) { return undefined }
+  if (typeof (sum) !== typeof (1)) { return undefined; }
 
   let avg = Math.round(sum / arr.length);
 
-  if(isNaN(avg)) { return undefined }
+  if (Number.isNaN(avg)) { return undefined; }
 
   return avg;
 };
