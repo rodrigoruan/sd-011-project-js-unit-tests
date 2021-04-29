@@ -12,10 +12,15 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (dividendo) => {
-dividendo = [1, 5, 4];
-const divisor = dividendo.split(' ').length;
-console.log(dividendo / divisor);
-};
+function average(division) {
+if (division.length === 0) return undefined;
+for (let dividend of division) {
+  if (typeof dividend !== 'number') {
+    return undefined;
+  }
+}
+
+return Math.round(division.reduce((a, b) => a + b, 0) / division.length);
+}
 
 module.exports = average;
