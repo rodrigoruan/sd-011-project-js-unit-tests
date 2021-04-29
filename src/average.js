@@ -12,6 +12,14 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
-  // add your implementation here
+const average = (arr) => {
+  if (typeof arr !== 'object' || arr.length === 0 || arr.some((i) => (typeof i === 'string'))) {
+    throw new Error('undefined');
+  }
+
+  let media = arr.reduce((soma, num) => soma + num) / arr.length;
+
+  return Math.ceil(media);
+};
+
 module.exports = average;
