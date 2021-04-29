@@ -18,7 +18,7 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') { return undefined; }
   }
-  return (array.reduce((soma, valorAtual) => soma + valorAtual) / array.length);
+  return (Math.round(array.reduce((soma, valorAtual) => soma + valorAtual) / array.length));
 };
 
 module.exports = average;
