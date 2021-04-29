@@ -32,6 +32,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.ok(circle() === undefined);
     assert.ok(circle(2).circumference === 12.56);
     assert.ok(circle(3).area === 28.26);
-    assert.ok(circle(3).area === 28.26 || circle(2).circumference === 18.84);
+    assert.ok(circle(3).area === 28.26 && circle(3).circumference === 18.84);
   });
 });
