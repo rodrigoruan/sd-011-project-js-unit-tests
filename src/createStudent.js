@@ -17,6 +17,6 @@
 
 const createStudent = (name) => {
 
-}
+};
 
 module.exports = createStudent;
