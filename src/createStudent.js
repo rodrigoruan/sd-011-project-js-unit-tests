@@ -16,10 +16,10 @@
 */
 
 function createStudent(name) {
-  // let estudantes = {};
-  // estudantes.name = name;
-  // estudantes.feedback = () => 'Eita pessoa boa!';
-  // return estudantes;
+  let estudantes = {};
+  estudantes.name = name;
+  estudantes.feedback = feedback = () => { return 'Eita pessoa boa!' }
+  return estudantes;
 }
 
 module.exports = createStudent;
