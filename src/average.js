@@ -12,7 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-let array = [];
 const average = (array) => {
   let sumOfArray = 0;
   if (array.length === 0) {
