@@ -87,7 +87,7 @@ const givePrice = (obj, item) => {
 const createMenu = (obj) => ({
   fetchMenu: () => obj,
   consumption: [],
-  order(item) { this.consumption.push(item) },
+  order(item) { this.consumption.push(item); },
   pay() {
     let check = 0;
     for (let item of this.consumption) {
