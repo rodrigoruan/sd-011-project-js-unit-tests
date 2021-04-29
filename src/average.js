@@ -21,11 +21,17 @@ const average = (array) => {
     }
       sum += array[index];
   }
+
   if (array.length === 0) {
     return undefined;
   }
 
   sumDivision = sum / array.length;
+  if (sumDivision % 2 !== 0) {
+    const sumRound = Math.round(sumDivision);
+    return sumRound;
+  }
+  
   return sumDivision;  
 };
 
