@@ -39,4 +39,6 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+let productResult = productDetails('arroz', 'feijão');
+    console.log(productResult);
 module.exports = productDetails;
