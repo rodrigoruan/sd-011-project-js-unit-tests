@@ -18,7 +18,7 @@
 function createStudent(name) {
   let estudantes = {};
   estudantes.name = name;
-  estudantes.feedback = (name) => { return 'Eita pessoa boa!'};
+  estudantes.feedback = () => { return 'Eita pessoa boa!' };
   return estudantes;
 }
 
