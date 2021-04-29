@@ -43,9 +43,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     const second = productDetails('Alcool gel', 'Máscara')[1];
     assert.notDeepStrictEqual(first, second);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const firstId = productDetails('Alcool gel', 'Máscara')[0].details.productId.includes('123');
-    const secondId = productDetails('Alcool gel', 'Máscara')[1].details.productId.includes('123');
-    assert.strictEqual(firstId, true);
-    assert.strictEqual(secondId, true);
+    const firstId = productDetails('Alcool gel', 'Máscara')[0].details.productId.slice(-3);
+    const secondId = productDetails('Alcool gel', 'Máscara')[1].details.productId.slice(-3);
+    assert.strictEqual(firstId, '123');
+    assert.strictEqual(secondId, '123');
   });
 });
