@@ -27,11 +27,15 @@ const circle = require('../src/circle');
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
-    assert.ok(lodash.isObject(circle(5)) === true);
+    const testArea = (n) => Number(parseFloat(circle(n).area.toPrecision(4)));
+    const testCirc = (n) =>
+      Number(parseFloat(circle(n).circumference.toPrecision(4)));
+
+    assert.ok(lodash.isObject(circle(1)) === true);
     assert.ok(Object.keys(circle(1)).length === 3);
     assert.ok(circle() === undefined);
-    assert.ok(circle(2).circumference === 12.56);
-    assert.ok(circle(3).area === 28.26);
-    assert.ok(circle(3).area === 28.26 && circle(3).circumference === 18.84);
+    assert.ok(testCirc(2) === 12.56);
+    assert.ok(testArea(3) === 28.26);
+    assert.ok(testArea(3) === 28.26 && testCirc(3) === 18.84);
   });
 });
