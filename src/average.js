@@ -39,9 +39,4 @@ const average = (array) => {
 
 // console.log(output);
 
-assert.strictEqual(average([1, 2, 3, 4, 5]), 3, 'Not Equal!');
-assert.strictEqual(average([]), undefined, 'Empty needs to come back "undefined" ');
-assert.strictEqual(average([5, 5, 5, 4]), 5, 'Arredondamento para baixo');
-assert.strictEqual(average([5, 5, 5, 1.4]), 4, 'Arredondamento para cima');
-assert.strictEqual(average([5, 5, 5, '5', 5]), undefined, 'String error');
 module.exports = average;
