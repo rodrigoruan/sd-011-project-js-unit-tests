@@ -39,14 +39,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-const positions = (first, second) => {
-  for (let i = 0; i < productDetails(first, second).length; i += 1) {
-      return 'oi'
-
-  }
-
-}
-
-console.log(productDetails('oi', 'oi').map((value) => value.details.productId.slice(-3)))
-
 module.exports = productDetails;
