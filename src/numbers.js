@@ -1,3 +1,5 @@
+const assert = require('assert');
+const lodash = require('lodash');
 /*
   A função numbers recebe um array (tamanho variável),
   retornando true se todos os parâmetros forem do tipo 'number' e false caso contrário.
@@ -17,5 +19,10 @@ const numbers = (myArray) => {
   }
   return true;
 };
+
+assert.strictEqual(numbers([1, 2, 3, 4, 5]), true);
+assert.strictEqual(numbers([1, 2, '3', 4, 5]), false);
+assert.strictEqual(numbers([1, 'a', 3]), false);
+assert.strictEqual(numbers([' ']), false);
 
 module.exports = numbers;
