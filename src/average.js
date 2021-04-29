@@ -15,8 +15,15 @@
     - average([1, '2']) // Retorno: undefined;
 */
 function average(array) {
-  return Math.ceil(array.reduce((a, b) => a + b, 0) / 2);
+  if (array.length === 0) return undefined;
+  for (let current of array) {
+    if (typeof current !== 'number') {
+      return undefined;
+    }
+  }
+  return Math.round(array.reduce((a, b) => a + b, 0) / array.length);
 }
+
 console.log(average([]));
 
 module.exports = average;
