@@ -26,6 +26,4 @@ trabalho na Trybe e mando muito em programação!
 #VQV!`;
 };
 
-console.log(typeof (vqv('Tunico', 30)));
-
 module.exports = vqv;
