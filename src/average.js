@@ -30,4 +30,14 @@ const average = (array) => {
     return Math.round(media);
 };
 
+const number = (array) => {
+  if (typeof array === 'number') {
+    return true;
+  } 
+  return false;
+};
+
+console.log(number(54));
+
+
 module.exports = average;
