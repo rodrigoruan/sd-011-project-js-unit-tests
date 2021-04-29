@@ -22,6 +22,4 @@ const createStudent = (studentName) => ({
 
 const estudante = createStudent('Leandrão, o Lobo Solitário');
 
-console.log(estudante.name);
-
 module.exports = createStudent;
