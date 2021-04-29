@@ -38,7 +38,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     assert.deepStrictEqual(productDetails()[0], productDetails()[1], 'object');
     // Teste que os dois objetos são diferentes entre si.
-    assert.notDeepStrictEqual((productDetails()[0], productDetails()[1]),);
+    assert.notDeepStrictEqual(productDetails(' ')[0], productDetails(' ')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
     const firstId = productDetails()[0].details.productId.slice(-3);
     const secondId = productDetails()[1].details.productId.slice(-3);
