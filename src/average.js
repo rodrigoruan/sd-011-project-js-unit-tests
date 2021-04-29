@@ -23,9 +23,9 @@ const average = arr => {
     };
     sum += index;
   }
-  return Math.round(sum/2);
+  return Math.round(sum/arr.length);
 };
 
-console.log(average([]));
+console.log(average([3, 4, 5]));
 
 module.exports = average;
