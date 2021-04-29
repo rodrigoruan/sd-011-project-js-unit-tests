@@ -12,8 +12,14 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add your implementation here
+const average = (array) => {
+  if (array.length === 0) return undefined;
+  for (let number of array) {
+    if (typeof number !== 'number') return undefined;
+  }
+  // Fonte: https://www.w3schools.com/jsref/jsref_reduce.asp
+  const averageTotal = array.reduce((total, num) => total + num) / array.length;
+  return Math.round(averageTotal);
 };
 
 module.exports = average;
