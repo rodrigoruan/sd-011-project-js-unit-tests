@@ -12,8 +12,20 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  //add your implementation here
+const { parse } = require('acorn');
+
+/** Para resolver este requisito, obtive ajuda de Alberto Candido 
+ * por me lembrar da ausência do typeof na condicional */ 
+
+const average = (arr) => {
+  if (arr.length === 0) return undefined;
+  let sumNum = 0;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (typeof arr[i] !== 'number') return undefined;
+    sumNum += arr[i];
+  }
+
+  return Math.round(sumNum / arr.length);
 };
 
 module.exports = average;
