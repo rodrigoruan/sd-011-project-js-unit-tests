@@ -14,7 +14,7 @@
 
 function average(array) {
   if (typeof array !== typeof []) return undefined;
-  if (array === []) return undefined;
+  if (array.length === 0) return undefined;
   let addValue = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] !== typeof 10) return undefined;
@@ -22,4 +22,5 @@ function average(array) {
   }
   return Math.round(addValue / array.length);
 }
+console.log(average([]));
 module.exports = average;
