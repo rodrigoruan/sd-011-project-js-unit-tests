@@ -13,15 +13,15 @@
 */
 
 const average = (arr) => {
-    if (typeof(arr) !== 'object' || typeof(arr[0]) !== 'number') {
+    if (typeof arr !== 'object' || typeof arr[0] !== 'number') {
       return undefined;
-    } else {
+    } {
       let total = 0;
       let resultado = 0;
       for (let index = 0; index < arr.length; index += 1) {
         total += arr[index];
       }
-      resultado = total/arr.length;
+      resultado = total / arr.length;
       return Math.round(resultado);
     }
 };
