@@ -13,17 +13,16 @@
 */
 
 const average = (array) => {
-  const avarageNumber = 0;
+  let avarageNumber = 0;
 
   for (const number of array) {
-    avarageNumber = avarageNumber + number
-    if (typeof(number) !== number || array === []) {
+    avarageNumber += number;
+    if (typeof number !== 'number' || array === []) {
       return undefined;
     }
   }
   
-  return Number.parseInt(avarageNumber / array.length);
+  return Number.parseInt(avarageNumber / array.length, 10);
 };
 
 module.exports = average;
-
