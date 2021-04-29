@@ -18,10 +18,10 @@ const average = (size) => {
   }
   let sum = 0;
   for (let index = 0; index < size.length; index += 1) {
-    if (typeof(size[index]) !== 'number') {
+    if (typeof (size[index]) !== 'number') {
       return;
     }
-    sum+= size[index];
+    sum += size[index];
   }
   const aswner = sum / size.length;
   const fixed = Number.parseInt(aswner.toFixed(0), 10);
