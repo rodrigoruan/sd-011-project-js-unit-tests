@@ -10,8 +10,25 @@
     - average([2, 2]) // Retorno: 2;
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
+
+    npm test roda todos. Deixo a dica de que é possível rodar um por um
+npm test tests/nomeDoArquivo
+
 */
 
-const average = () => {};
+const average = (array) => {
+  let count = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] === 'string') {
+      return undefined;
+    }
+    count += array[index];
+  }
+  let result = count / array.length;
+  return Math.round(result);
+};
 
 module.exports = average;
