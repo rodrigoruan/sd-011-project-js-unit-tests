@@ -16,7 +16,6 @@
 */
 
 const createStudent = (student) => {
-  let goodPerson = 'Eita pessoa boa!';
   const objectStudent = {
     name: student,
     feedback: () => {
