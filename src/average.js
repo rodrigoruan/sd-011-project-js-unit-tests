@@ -18,14 +18,10 @@
 const average = (media) => {
   let sum = 0;
 
-  if (media.isNaN || !media.length) {
-    return undefined;
-  }
+  if (media.isNaN || !media.length) return undefined;
 
   for (let index of media) {
-    if (typeof index !== 'number') {
-      return undefined;
-    }
+    if (typeof index !== 'number') return undefined;
     sum += index;
   }
 
