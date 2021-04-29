@@ -28,9 +28,14 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.strictEqual(typeof circle(10), 'object');
     assert.strictEqual(Object.keys(circle(10)).length, 3);
     assert.strictEqual(circle(), undefined);
-    assert.strictEqual(circle(2).circumference, 12.56);
-    assert.strictEqual(circle(3).area, 28.26);
-    assert.deepStrictEqual(circle(3), {
+    assert.strictEqual(Math.round(circle(2).circumference * 100) / 100, 12.56);
+    assert.strictEqual(Math.round(circle(3).area * 100) / 100, 28.26);
+    
+    const resultCircle = circle(3);
+    resultCircle.circumference = Math.round(resultCircle.circumference * 100) / 100;
+    resultCircle.area = Math.round(resultCircle.area * 100) / 100;
+
+    assert.deepStrictEqual(resultCircle, {
       radius: 3,
       circumference: 18.84,
       area: 28.26,
