@@ -1,3 +1,5 @@
+const assert = require('assert');
+const lodash = require('lodash');
 /*
   Dada uma função chamada createStudent que recebe como parâmetro um nome,
   retorne um objeto que contenha duas chaves:
@@ -15,6 +17,9 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {};
+const createStudent = (name) => ({
+  name,
+  feedback: () => 'Eita pessoa boa!',
+});
 
 module.exports = createStudent;
