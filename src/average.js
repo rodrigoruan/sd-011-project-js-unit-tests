@@ -13,7 +13,7 @@
 */
 
 const average = (numbers) => {
-  if (numbers.length < 2) {
+  if (!numbers.length) {
     return undefined;
   }
   let soma = 0;
