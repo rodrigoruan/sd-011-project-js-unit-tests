@@ -69,5 +69,24 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     restaurantInterface.order('coca');
 
     assert.deepStrictEqual(restaurantInterface.consumption, ['coxinha', 'coca', 'brigadeiro', 'coca']);
+
+    let functionalMenu = {
+      food: {
+        coxinha: 5.90,
+        brigadeiro: 2.50,
+      },
+
+      drink: {
+        coca: 3.95,
+      },
+    };
+
+    let workingInterface = createMenu(functionalMenu);
+    workingInterface.order('coxinha');
+    workingInterface.order('coca');
+    workingInterface.order('coxinha');
+    workingInterface.order('brigadeiro');
+
+    assert.strictEqual(workingInterface.pay(), 14.69);
   });
 });
