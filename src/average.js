@@ -12,8 +12,38 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
+const verefyArray = (array) => {
+  if (array.length < 1) {
+    return false;
+  }
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return false;
+    }
+  }
+  return true;  
+};
+
+const calcAverage = (array) => {
+  let total = 0;
+
+  for (let index = 0; index < array.length; index += 1) {
+    total += array[index];
+  }
+
+  let average = Math.round(total / array.length);
+  return average;
+};
+
 const average = (array) => {
-  const arrayAvarege = 0;
+  if (!verefyArray(array)) {
+    return undefined;
+  }
+
+  if (verefyArray(array)) {
+    return calcAverage(array);
+  }
 };
 
 module.exports = average;
