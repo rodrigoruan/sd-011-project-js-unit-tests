@@ -23,5 +23,4 @@ const createStudent = (string) => {
   return estudante;
 };
 
-console.log(createStudent('Leandrão'));
 module.exports = createStudent;
