@@ -22,5 +22,4 @@ const createStudent = (nome) => {
   };
   return estudante;
 };
-console.log(createStudent('Bruninho'));
 module.exports = createStudent;
