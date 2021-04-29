@@ -12,13 +12,20 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (averageSize) => {
-  if (average(averageSize) === '' || average(averageSize.typeOf()) !== 'number') {
-    return undefined;
+const average = (size) => {
+  if (size.length === 0) {
+    return;
   }
-  const averageSum = averageSize.reduce((a, b) => a + b) / averageSize.length;
-  const newAverage = Math.round(averageSum);
-  return newAverage;
+  let sum = 0;
+  for (let index = 0; index < size.length; index += 1) {
+    if (typeof(size[index]) !== 'number') {
+      return;
+    }
+    sum+= size[index];
+  }
+  const aswner = sum / size.length;
+  const fixed = Number.parseInt(aswner.toFixed(0), 10);
+  return fixed;
 };
 
 module.exports = average;
