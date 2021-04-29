@@ -16,6 +16,17 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  if (typeof nome === 'undefined' || typeof idade === 'undefined') {
+    return undefined
+  }
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`      
+};
 
 module.exports = vqv;
+
+// lessons learned here:
+// 1. the identation is not necessary after return, because the text needs to be exactly the same
