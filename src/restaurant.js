@@ -93,7 +93,9 @@ const createMenu = (objeto) => {
     fetchMenu: () => objeto,
     consumption: [],
     order: (pedido) => obj.consumption.push(pedido),
-    pay: () => totalConsumption(Object.values(objeto.food)) + totalConsumption(Object.values(objeto.drink)),
+    pay: () =>
+      totalConsumption(Object.values(objeto.food))
+      + totalConsumption(Object.values(objeto.drink)),
   };
   return obj;
 };
