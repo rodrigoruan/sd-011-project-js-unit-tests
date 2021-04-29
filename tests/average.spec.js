@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 
 const assert = require('assert');
-const { setupMaster } = require('cluster');
 const average = require('../src/average');
 
 /*
@@ -19,22 +18,8 @@ const average = require('../src/average');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-const teste = array => {
-  it('Verifica se o comportamento da função "average" está correto', (array) => {
-    let soma = 0;
-    let media = 0;
-    if (array.length === 'number') {
-      return undefined;
-    }
-    for (let index = 0; index < array.length; index += 1) {
-      if (array.length !== 'number') {
-      return undefined;
-      }
-      soma += array[index];
-    }
-    media = soma/array.length
-    return Math.round(media);
-  
+describe('1 - Implemente a função `average`', () => {
+  it('Verifica se o comportamento da função "average" está correto', () => {
     assert.strictEqual(average([3, 4, 5]), 4);
     assert.strictEqual(average([1, 2, 3, '4', 5]), undefined);
     assert.strictEqual(average([0, 0, 0, 0, 0, 0, 0]), 0);
@@ -51,4 +36,4 @@ const teste = array => {
 
     assert.strictEqual(average([-11, -5, 2]), -5);
   });
-};
+});
