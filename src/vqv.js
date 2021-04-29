@@ -17,10 +17,15 @@
 */
 
 const vqv = (nome, idade) => {
-  if (typeof(nome) === 'undefined' || typeof(idade) === 'undefined') {
-    return undefined
+  if (typeof (nome) === 'undefined' || typeof (idade) === 'undefined') {
+    return undefined;
   }
-  return`Oi, meu nome é ${nome}!\nTenho ${idade} anos,\ntrabalho na Trybe e mando muito em programação!\n#VQV!`;
-}
+  const sentence1 = `Oi, meu nome é ${nome}!`;
+  const sentence2 = `Tenho ${idade} anos,`;
+  const sentence3 = 'trabalho na Trybe e mando muito em programação!';
+  const sentence4 = '#VQV!';
+
+  return `${sentence1}\n${sentence2}\n${sentence3}\n${sentence4}`;
+};
 
 module.exports = vqv;

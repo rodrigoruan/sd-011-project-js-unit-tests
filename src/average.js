@@ -17,7 +17,7 @@ function sum(array) {
 }
 
 const average = (array) => {
-  if (array.length === 0 || typeof(sum(array)) === 'string') {
+  if (array.length === 0 || typeof (sum(array)) === 'string') {
     return undefined;
   }
   return Math.round(sum(array) / array.length);
