@@ -26,5 +26,5 @@ let soma = 0;
   } 
   return Math.round(soma / array.length);
 };
-console.log(average([1, '3']));
+
 module.exports = average;
