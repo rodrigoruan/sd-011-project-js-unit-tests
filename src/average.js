@@ -13,6 +13,23 @@
 
 */
 
-const average = () => {};
+const average = (array) => {
+  let soma = 0;
+
+  if (array.length === 0) {
+    return undefined;
+  }
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== typeof (soma)) {
+      return undefined;
+    }
+    soma += array[index];
+  }
+
+  return Math.round(soma / array.length);
+};
+
+console.log(average([]));
 
 module.exports = average;
