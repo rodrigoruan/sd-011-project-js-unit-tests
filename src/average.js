@@ -13,12 +13,11 @@
 */
 
 const average = (array) => {
-  if (typeof(array) !== 'object') { return undefined};
-  if (array.length === 0) { return undefined};
+  if (typeof (array) !== 'object') { return undefined; }
+  if (array.length === 0) { return undefined; }
   for (index in array) {
-    if (typeof(array[index]) !== 'number') { return undefined };
+    if (typeof (array[index]) !== 'number') { return undefined; };
   }
-
   return (array.reduce((soma, valorAtual) => soma + valorAtual) / array.length);
 };
 
