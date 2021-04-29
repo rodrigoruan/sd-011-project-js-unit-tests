@@ -14,17 +14,17 @@
 
 const average = (arr) => {
   if (arr.length === 0) {
-    return
+    return;
   }
   let sum = 0;
   for (let index = 0; index < arr.length; index += 1) {
-    if (typeof(arr[index]) !== 'number') {
+    if (typeof (arr[index]) !== 'number') {
       return;
     }
-    sum += arr[index]
+    sum += arr[index];
   }
-  const res = sum/arr.length;
-  return Number.parseInt(res.toFixed(0));
+  const res = sum / arr.length;
+  const fixedNumber = Number.parseInt(res.toFixed(0), 10);
+  return fixedNumber;
 };
-console.log(average([3, 4, 5]))
 module.exports = average;
