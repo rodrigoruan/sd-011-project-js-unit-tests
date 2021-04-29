@@ -16,6 +16,11 @@ function sum(array) {
   return array.length === 0 ? 0 : array[0] + sum(array.slice(1));
 }
 
-const average = (array) => Math.round(sum(array) / array.length);
+const average = (array) => {
+  if (array.length === 0 || typeof(sum(array)) === 'string') {
+    return undefined;
+  }
+  return Math.round(sum(array) / array.length);
+};
 
 module.exports = average;
