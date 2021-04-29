@@ -40,7 +40,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     const firstObject = productDetails('Alcool gel', 'Máscara')[0];
     const secondObject = productDetails('Alcool gel', 'Máscara')[1];
-    assert.strictEqual(firstObject !== secondObject, true);
+    assert.notStrictEqual(firstObject, secondObject);
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').some((i) => !i.details.productId.endsWith('123')), false);
   });
