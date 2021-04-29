@@ -1,4 +1,3 @@
-// initial commit
 const assert = require('assert');
 const vqv = require('../src/vqv.js');
 

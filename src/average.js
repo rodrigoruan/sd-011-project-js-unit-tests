@@ -12,6 +12,24 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+// References:
+// Check if it's a number: https://mkyong.com/javascript/check-if-variable-is-a-number-in-javascript/
+
+const average = (media) => {
+  let sum = 0;
+
+  if (media.isNaN || !media.length) {
+    return undefined;
+  }
+
+  for (let index of media) {
+    if (typeof index !== 'number') {
+      return undefined;
+    }
+    sum += index;
+  }
+
+  return Math.round(sum / media.length);
+};
 
 module.exports = average;
