@@ -25,10 +25,9 @@ const average = (inputArray) => {
     sum += inputArray[i]; 
   }
   final = sum/inputArray.length;
-  sum > 0 ? Math.floor(final) : Math.ceil(final);
-  return final;
+  return Math.round(final);
 };
 
-console.log(average([1,3,5,7,6,9]))
+console.log(average([0,0,0,0,0,1]))
 
 module.exports = average;
