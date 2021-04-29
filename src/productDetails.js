@@ -39,4 +39,8 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+console.log(productDetails('Alcool Gel', 'Mascara').every(x => x.details.productId.slice(-3) == '123'))
+let firstProduct = 'Alcol Gel'
+let secondProduct = 'Mascara'
+console.log(productDetails(firstProduct, secondProduct)[0].details.productId.substring(firstProduct.length));
 module.exports = productDetails;
