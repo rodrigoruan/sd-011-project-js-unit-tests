@@ -19,6 +19,21 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
+//* arredonda para baixo
+const mathTrunc = (param) => Math.trunc(param);
 
+const calculator = {
+  //* soma os paramentors
+  add: (param1, param2) => mathTrunc(param1 + param2),
+
+  //* multiplica os parametros
+  mult: (param1, param2) => mathTrunc(param1 * param2),
+  
+  //* divide os paramentros
+  div: (param1, param2) => mathTrunc(param1 / param2),
+
+  //* subtrai os parametros
+  sub: (param1, param2) => mathTrunc(param1 - param2),
+};
+// console.log(calculator.add(3, 2));
 module.exports = calculator;
