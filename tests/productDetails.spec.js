@@ -33,13 +33,20 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    assert.deepStrictEqual(typeof productDetails(), 'Array');
+    assert.deepStrictEqual(productDetails('firstProduct', 'secondProduct').constructor.name, 'Array');
 
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
-    
+
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.strictEqual(typeof productDetails('firstElement', 'secondElement'), 'object');
+
     // Teste que os dois objetos são diferentes entre si.
+    const firstReturn = { name: 'firstProduct', details: { productId: 'firstProduct123' } };
+    const secondReturn = { name: 'secondProduct', details: { productId: 'secondProduct123' } };
+    assert.strictEqual(productDetails('first', 'second')[0] !== productDetails('first', 'second)'), firstReturn !== secondReturn);
     // (Difícil) Teste que os dois productIds terminam com 123.
+    assert.strictEqual(productDetails('first', 'second')[0].details.productId, 'first123');
+    assert.strictEqual(productDetails('first', 'second')[1].details.productId, 'second123');
   });
 });
