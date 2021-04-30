@@ -16,7 +16,7 @@
   - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
   Comportamento:
 
-  const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
+  const meuRestaurante = )createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
 
   meuRestaurante.fetchMenu() // Retorno: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
 
@@ -73,14 +73,6 @@
 // const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
 // // Essa função deve ser associada à chave `order` de `restaurant`
 
-const createMenu = (obj) => {
-  const newObject = {
-  fecthMenu: () => obj,
-  consumption: [],
-  order: (request) => {newObject.consumption.push(request)}
-  }
-  return newObject;
-}
 
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
@@ -91,5 +83,22 @@ const createMenu = (obj) => {
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
+const createMenu = (obj) => {
+  const newObject = {
+  fecthMenu: () => obj,
+  consumption: [],
+  order: (request) => {newObject.consumption.push(request)},
+  pay: 0,
+  }
+  }
+  return newObject;
+}
+
+// function for pay valuy
+const valueOfOrder = (obj) => {
+  const itemsToPayFor = obj.consumption;
+  const foodsArray = Object.values(obj.food);
+  const drinksArray = Object.values(obj.drink);
+}
 
 module.exports = createMenu;
