@@ -52,3 +52,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(concat2, productId2);
   });
 });
+
+// Referencias:
+// Array.isArray: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray

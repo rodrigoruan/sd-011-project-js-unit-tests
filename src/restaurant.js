@@ -109,3 +109,7 @@ const createMenu = (objectMenu) => {
 createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } }).pay();
 
 module.exports = createMenu;
+
+// Referencias:
+// This: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+// toFixed: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
