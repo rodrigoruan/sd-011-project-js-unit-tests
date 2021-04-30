@@ -87,8 +87,7 @@ const consumptionPay = (myMenu) => {
   const consumption = Object.values(restaurant.consumption);
   let total = 0;
   const tax = 1.1;
-  const { food } = myMenu;
-  const { drink } = myMenu;
+  const { food, drink } = myMenu;
   for (let index = 0; index < consumption.length; index += 1) {
     if (food[consumption[index]]) {
       total += food[consumption[index]];
