@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-use-of-empty-return-value */
 /* eslint-disable max-len */
 
 /*
@@ -79,6 +80,52 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (myMenu) => {
+  const objectMenu = {
+    fetchMenu: () => {
+      return myMenu;
+    },
+    consumption: [],
+    order: (request) => {
+      objectMenu.consumption.push(request);
+    },
+    pay: () => {
+      let totalConsumption = 0;
+      const tax = 1.1;
+      for (let index = 0; index < objectMenu.consumption.length; index += 1) {
+        let foodItems = objectMenu.fetchMenu().food[objectMenu.consumption[index]];
+        let drinkItems = objectMenu.fetchMenu().drinks[objectMenu.consumption[index]];
+        if (typeof (foodItems) === 'number') {
+          totalConsumption += foodItems;
+        } else if (typeof (drinkItems) === 'number') {
+          totalConsumption += drinkItems;      
+        }
+      }
+      let totalConsumptionPlusTax = Math.round(totalConsumption * tax * 100) / 100;
+      return totalConsumptionPlusTax;
+    },
+  };
+  return objectMenu;
+};
 
-module.exports = createMenu;
+const createMenu2 = (newMenu) => {
+  const newObjectMenu = {
+    fetchMenu: () => newMenu,
+  };
+  return newObjectMenu;
+};
+
+console.log(createMenu2().fetchMenu);
+
+// const meuRestaurante = createMenu();
+
+// meuRestaurante.order('coxinha');
+// meuRestaurante.order('agua');
+// meuRestaurante.order('coxinha');
+
+// console.log(meuRestaurante.fetchMenu())
+// console.log(typeof(meuRestaurante.fetchMenu))
+// console.log(meuRestaurante.consumption.length)
+// console.log(meuRestaurante.pay())
+
+// console.log(typeof (createMenu().fetchMenu))
