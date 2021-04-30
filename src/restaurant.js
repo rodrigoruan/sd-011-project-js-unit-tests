@@ -89,16 +89,20 @@ const createMenu = (object) => {
     fetchMenu: () => object,
     consumption,
     order: (string) => myMenu(string),
+    pay: () => {
+      let totalPayment = 0;
+      for (let index = 0; index < consumption.length; index += 1) {
+        if (object.food[consumption[index]]) {
+          totalPayment += object.food[consumption[index]];
+        }
+        if (object.drink[consumption[index]]) {
+          totalPayment += object.drink[consumption[index]];
+        }
+      }
+      return totalPayment;
+    },
   };
   return menu;
 };
-
-// const object = { food: {}, drink: {} };
-// let objetoRetornado = createMenu(object);
-// objetoRetornado.order('coxinha');
-// objetoRetornado.order('agua');
-// objetoRetornado.order('sopa');
-// objetoRetornado.order('sashimi');
-// console.log(objetoRetornado.consumption);
 
 module.exports = createMenu;
