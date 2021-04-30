@@ -13,7 +13,7 @@
 */
 
 const average = (numbers) => {
-  // adicione seu codigo aqui
+  // site utilizado: https://www.freecodecamp.org/news/check-if-javascript-array-is-empty-or-not-with-length/#:~:text=To%20check%20if%20an%20array,it%20is%20empty%20or%20not.
   if (Array.isArray(numbers) && !numbers.length) {
     return undefined;
   }
