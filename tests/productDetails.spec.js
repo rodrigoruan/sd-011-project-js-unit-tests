@@ -38,6 +38,14 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     assert.strictEqual(typeof Object.keys(productDetails('Alcool gel', 'Máscara')), 'object');
     // Teste que os dois objetos são diferentes entre si.
+    assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0], productDetails('Alcool gel', 'Máscara')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
+    const object = productDetails('Alcool gel', 'Máscara');
+    const firstObject = object[0].details.productId;
+    const secondObject = object[1].details.productId;
+    const firstValidator = firstObject.substr(firstObject.length - 3);
+    const secondValidator = secondObject.substr(secondObject.length - 3);
+    assert.strictEqual(firstValidator, '123');
+    assert.strictEqual(secondValidator, '123');
   });
 });
