@@ -27,5 +27,5 @@ const circle = (radius) => {
     circumference: 2 * PI * radius,
   };
 };
-
+console.log(typeof((circle(3).circumference).toPrecision(2)));
 module.exports = circle;
