@@ -18,7 +18,16 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
+const summation = (num1, num2) => Math.floor(num1 + num2);
+const multiplication = (num1, num2) => Math.floor(num1 * num2);
+const division = (num1, num2) => Math.floor(num1 / num2);
+const subtraction = (num1, num2) => Math.floor(num1 - num2);
 
-const calculator = {};
+const calculator = {
+  add: summation,
+  mult: multiplication,
+  div: division,
+  sub: subtraction,
+};
 
 module.exports = calculator;
