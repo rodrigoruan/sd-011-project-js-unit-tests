@@ -57,29 +57,21 @@ const createMenu = (objeto) => {
       restaurant.consumption.push(string);
     },
     pay: () => {
-      const total = 0;
       const foodObj = restaurant.fetchMenu().food;
-      const drinkObj = restaurant.fetchMenu().drink;
-      for (const item of restaurant.consumption) {
-        for (index in foodObj) {
-          if (item === foodObj[index]) {
-            total += foodObj.item;
-          }
+      const drinkObj = restaurant.fetchMenu().drinks;
+      let total = 0;
+      for (let item of restaurant.consumption) {
+        if (typeof foodObj[item] !== 'undefined') {
+          total += foodObj[item];
+        } else {
+          total += drinkObj[item];
         }
       }
-      for (const item of restaurant.consumption) {
-        for (index in drinkObj) {
-          if (item === drinkObj[index]) {
-            total += drinkObj.item;
-          }
-        }
-      }
-      return total + ((total*10)/100);
+
+      return total + (total * 10) / 100;
     },
-  }
-  return restaurant
+  };
+  return restaurant;
 };
-
-
 
 module.exports = createMenu;
