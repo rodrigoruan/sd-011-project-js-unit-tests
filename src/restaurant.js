@@ -81,9 +81,11 @@
 //
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 //
+// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
 const createMenu = (objt) => {
   let menu = {
     fetchMenu: () => objt,
+    consumption: [],
   };
   return menu;
 };
