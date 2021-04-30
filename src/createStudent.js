@@ -16,11 +16,10 @@
 */
 
 const createStudent = (nome) => {
-const studentObject = {
-name: `${nome}`,
-feedback: () => 'Eita pessoa boa!',
-};
+const studentObject = {};
+studentObject.name = nome;
+studentObject.feedback = () => 'Eita pessoa boa!';
 return studentObject;
 };
-
+// console.log(createStudent('Natalia'));
 module.exports = createStudent;
