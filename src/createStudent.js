@@ -21,8 +21,8 @@ const createStudent = (name) => {
   }
   return {
     name,
-    feedBack: () => 'Eita pessoa boa!'
-  }
+    feedBack: () => 'Eita pessoa boa!',
+  };
 };
 
 module.exports = createStudent;
