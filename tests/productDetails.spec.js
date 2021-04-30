@@ -44,7 +44,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // (Difícil) Teste que os dois productIds terminam com 123.
     let producID0 = productDetails()[0].details.productId;
     let producID1 = productDetails()[1].details.productId;
-    assert.strictEqual(producID0.slice((producID0.length - 3), producID0.length), '123');
-    assert.strictEqual(producID1.slice((producID1.length - 3), producID1.length), '123');
+    assert.deepStrictEqual(producID0.slice((producID0.length - 3), producID0.length), '123');
+    assert.deepStrictEqual(producID1.slice((producID1.length - 3), producID1.length), '123');
   });
 });
