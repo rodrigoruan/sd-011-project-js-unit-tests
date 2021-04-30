@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+//* eslint-disable max-len */
 
 /*
   Essa função recebe o raio de um círculo,
