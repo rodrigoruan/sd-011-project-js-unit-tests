@@ -17,9 +17,10 @@
 */
 
 const vqv = (nome, idade) => {
-  let paragrafo = (`Oi, meu nome é ${nome}!\n
-  Tenho ${idade} anos,\n
-  trabalho na Trybe e mando muito em programação!\n
+  let paragrafo = (
+  `Oi, meu nome é ${nome}!
+  Tenho ${idade} anos,
+  trabalho na Trybe e mando muito em programação!
   #VQV!`
   );
   return paragrafo;
