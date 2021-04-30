@@ -50,6 +50,11 @@
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (objeto) => {
+
+  if(typeof objeto !== 'undefined'){
+    return undefined
+  }
+
   const restaurant = { 
     fetchMenu: () => objeto, 
     consumption: [],
