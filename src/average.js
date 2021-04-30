@@ -13,8 +13,11 @@
 */
 
 const average = (array) => {
+  if (!array.length || array.some((value) => typeof value !== 'number')) {
+    return undefined;
+  }
   const sum = array.reduce((acc, cur) => acc + cur, 0);
-  return sum / array.length;
+  return Math.round(sum / array.length);
 };
 
 module.exports = average;
