@@ -90,15 +90,13 @@ const createMenu = (myMenu) => {
     pay: () => {
       let totalConsumption = 0;
       const tax = 1.1;
+      const foodItems = objectMenu.fetchMenu().food;
+      const drinkItems = objectMenu.fetchMenu().drinks;
+      const foodAndDrinks = { ...foodItems, ...drinkItems };
       for (let index = 0; index < objectMenu.consumption.length; index += 1) {
-        let foodItems = objectMenu.fetchMenu().food[objectMenu.consumption[index]];
-        let drinkItems = objectMenu.fetchMenu().drinks[objectMenu.consumption[index]];
-        if (typeof (foodItems) === 'number') {
-          totalConsumption += foodItems;
-        } else if (typeof (drinkItems) === 'number') {
-          totalConsumption += drinkItems;      
-        }
+        totalConsumption += foodAndDrinks[objectMenu.consumption[index]];
       }
+
       let totalConsumptionPlusTax = Math.round(totalConsumption * tax * 100) / 100;
       return totalConsumptionPlusTax;
     },
