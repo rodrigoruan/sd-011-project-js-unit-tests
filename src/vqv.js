@@ -16,23 +16,19 @@
       #VQV!'
 */
 const checkNameValid = (name) => {
-  if (!name || !name.trim()) {
-    return undefined
-  }
+  if (!name || !name.trim()) { return undefined; }
 
-  return name
+  return name;
 };
 
 const checkAgeValid = (age) => {
-  if (!age || age < 0) {
-    return undefined;
-  }
+  if (!age || age < 0) { return undefined; }
 
   return age;
 };
 
 const vqv = (nome, idade) => {
-  if (checkNameValid(nome) === undefined || checkAgeValid(idade)  === undefined) {
+  if (checkNameValid(nome) === undefined || checkAgeValid(idade) === undefined) {
     return undefined;
   }
   
