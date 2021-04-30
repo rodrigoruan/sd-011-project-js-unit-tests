@@ -106,24 +106,4 @@ const createMenu = (myMenu) => {
   return objectMenu;
 };
 
-const createMenu2 = (newMenu) => {
-  const newObjectMenu = {
-    fetchMenu: () => newMenu,
-  };
-  return newObjectMenu;
-};
-
-console.log(createMenu2().fetchMenu);
-
-// const meuRestaurante = createMenu();
-
-// meuRestaurante.order('coxinha');
-// meuRestaurante.order('agua');
-// meuRestaurante.order('coxinha');
-
-// console.log(meuRestaurante.fetchMenu())
-// console.log(typeof(meuRestaurante.fetchMenu))
-// console.log(meuRestaurante.consumption.length)
-// console.log(meuRestaurante.pay())
-
-// console.log(typeof (createMenu().fetchMenu))
+module.exports = createMenu;
