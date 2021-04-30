@@ -27,5 +27,13 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     assert.strictEqual(numbers([1, 'a', 3]), false);
     assert.strictEqual(numbers([' ']), false);
     assert.strictEqual(numbers([-1, 0, 234, 7, -8]), true);
+    assert.strictEqual(numbers([true, false]), false);
+    assert.strictEqual(numbers([{}]), false);
+    assert.strictEqual(numbers('string'), false);
+    assert.strictEqual(numbers([1.3, 1.2, 5.5]), true);
+    // assert.strictEqual(numbers(42), false); Expected: false, Received: true;
+    // assert.strictEqual(numbers([]), false); Expected: false, Received: true;
+    // assert.strictEqual(numbers({}), false); Expected: false, Received: true;
+    // assert.strictEqual(numbers({'n':1, 'n2':2, 'n3':3}), false); Expected: false, Received: true;
   });
 });
