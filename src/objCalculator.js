@@ -18,7 +18,14 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
+// n = number
+// Reference: https://stackoverflow.com/questions/31095710/methods-in-es6-objects-using-arrow-functions
 
-const calculator = {};
+const calculator = {
+  add: (n1, n2) => Math.floor(n1 + n2),
+  mult: (n1, n2) => Math.floor(n1 * n2),
+  div: (n1, n2) => Math.floor(n1 / n2),
+  sub: (n1, n2) => Math.floor(n1 - n2),
+};
 
 module.exports = calculator;
