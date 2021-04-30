@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { accessSync } = require('fs');
 const productDetails = require('../src/productDetails');
 
 /*
@@ -30,8 +31,11 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
-    // ESCREVA SEUS TESTES ABAIXO:
+    assert.strictEqual(typeof productDetails('luvas', 'mascara'), 'object');
+    assert.strictEqual(productDetails('luvas', 'mascara').length, 2);
+    assert.strictEqual(typeof (productDetails('luvas', 'mascara')), 'object');
+    assert.notStrictEqual(productDetails('luvas', 'mascara'), productDetails('luvas', 'mascara'));
+    assert.strictEqual(Object.values.details.productId(productDetails('luvas', 'mascara'), '123'));
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.
