@@ -89,13 +89,12 @@ const orderToMenu = (request) => {
 
 const pay = () => {
   const menuEntries = Object.values(restaurant.fetchMenu());
-  console.log(menuEntries)
   let orderPrice = 0;
   
   for (let index = 0; index < restaurant.consumption.length; index += 1) {
       if (restaurant.consumption[index] === menuEntries[0].name) {
         orderPrice += menuEntries[0].price;
-      } else{
+      } else {
         orderPrice += menuEntries[1].price;
       }
   }
@@ -110,21 +109,5 @@ const createMenu = (myMenu) => {
     restaurant.pay = pay;
     return restaurant;
 };
-
-const menuObj = {
-  food: {
-    name: 'coxinha',
-    price: 2,
-  },
-  drink: {
-    name: 'agua',
-    price: 1,
-  }
-};
-const teste8 = createMenu(menuObj);
-teste8.order('coxinha');
-teste8.order('agua');
-teste8.order('coxinha');
-console.log(teste8.pay())
 
 module.exports = createMenu;
