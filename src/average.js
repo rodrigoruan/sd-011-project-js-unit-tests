@@ -14,23 +14,22 @@
 
 const checkIfArrayAndNotEmptyAndNumeric = (numberArray) => {
   if (!Array.isArray(numberArray) || !numberArray.length) {
-    return undefined;
+    return false;
   }
 
-  for (let i = 0; i < numberArray.length; i += 1) {
-    if (typeof(numberArray[i]) !== 'number') {
-      return undefined;
-    }
-  }
+  const isNumber = numberArray.every(function(element) {
+    return typeof(element) === 'number';
+  });
 
-  return numberArray;
+  return isNumber;
 };
 
 const average = (numberArray) => {
-  if (checkIfArrayAndNotEmptyAndNumeric(numberArray) !== undefined) {
+  if (checkIfArrayAndNotEmptyAndNumeric(numberArray) !== false) {
     const sum = numberArray.reduce((a, b) => a + b);
     return Math.round(sum / numberArray.length);
   }
+  
   return undefined;
 };
 
