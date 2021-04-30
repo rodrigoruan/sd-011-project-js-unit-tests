@@ -26,5 +26,6 @@ for (let index of arrayNumbers) {
 }
   return Math.round(sum / arrayNumbers.length);
 }
+}
 
 module.exports = average;
