@@ -14,7 +14,7 @@
 
 const average = (averageArray) => {
   let sum = 0;
-  if (averageArray.length === 0) hah{
+  if (averageArray.length === 0) {
   return undefined;
   }
   for (let index = 0; index < averageArray.length; index += 1) {
