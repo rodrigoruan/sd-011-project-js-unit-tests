@@ -38,5 +38,5 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-console.log(productDetails('fisrt', 'second')[0].details.productId)
+// console.log(productDetails('fisrt', 'second')[0].details.productId)
 module.exports = productDetails;
