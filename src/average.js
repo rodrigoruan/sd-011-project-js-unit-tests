@@ -17,8 +17,8 @@ const checkIfArrayAndNotEmptyAndNumeric = (numberArray) => {
     return false;
   }
 
-  const isNumber = numberArray.every(function(element) {
-    return typeof(element) === 'number';
+  const isNumber = numberArray.every(function (element) {
+    return typeof (element) === 'number';
   });
 
   return isNumber;
@@ -29,7 +29,7 @@ const average = (numberArray) => {
     const sum = numberArray.reduce((a, b) => a + b);
     return Math.round(sum / numberArray.length);
   }
-  
+
   return undefined;
 };
 
