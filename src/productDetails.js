@@ -39,4 +39,5 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+console.log(productDetails('Agua', 'Chocolate')[0].details.productId.slice(-3));
 module.exports = productDetails;
