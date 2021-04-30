@@ -21,10 +21,10 @@
 
 const calculator = (num1, num2) => {
   const operacoes = {
-  add: num1 + num2,
-  mult: num1 * num2,
-  div: num1 / num2,
-  sub: num1 - num2,
+  add: Math.floor(num1 + num2),
+  mult: Math.floor(num1 * num2),
+  div: Math.floor(num1 / num2),
+  sub: Math.floor(num1 - num2),
   };
   return operacoes;
 };
