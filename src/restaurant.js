@@ -77,8 +77,10 @@ function total(menu) {
   let count = 0;
   const food = Object.entries(menu.fetchMenu().food);
   const drink = Object.entries(menu.fetchMenu().drink);
-  menu.consumption.map((c) => (count += foods(c, food)));
-  menu.consumption.map((c) => (count += drinks(c, drink)));
+  for (let i = 0; i < menu.consumption.length; i += 1) {
+    count += foods(menu.consumption[i], food);
+    count += drinks(menu.consumption[i], drink);
+  }
   return (count * 10) / 100 + count;
 }
 
