@@ -24,10 +24,13 @@ const productDetails = require('../src/productDetails');
       }
     }
   ]
-
+  
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
-*/
-
+  */
+ const test = productDetails('oi', 'seilá');
+ const test1 = test[0].details.productId.substr(test[0].details.productId.length - 3, 3);
+ const test2 = test[1].details.productId.substr(test[1].details.productId.length - 3, 3);
+ 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     // assert.fail();
@@ -42,9 +45,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.notDeepStrictEqual(productDetails('oi', 'seilá')[0], productDetails('oi', 'seilá')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const test = productDetails('oi', 'seilá');
-    const test1 = test[0].details.productId.substr(test[0].details.productId.length - 3, 3);
-    const test2 = test[1].details.productId.substr(test[1].details.productId.length - 3, 3);
     assert.strictEqual(test1, '123');
     assert.strictEqual(test2, '123');
   });

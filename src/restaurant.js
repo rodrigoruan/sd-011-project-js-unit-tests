@@ -73,12 +73,35 @@
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
+const createMenu = (obj) => {
+  const objMenu = {
+    fetchMenu: () => obj,
+    consumption: [],
+    order: (request) => objMenu.consumption.push(request),
+    pay: () => {
+      let sum = 0;
+      for (let i = 0; i < objMenu.consumption.length; i += 1) {
+        let pedido = objMenu.consumption[i];
+        // console.log(pedido);
+        // console.log(objMenu.fetchMenu().food[pedido]);
+        if (objMenu.fetchMenu().food[pedido]) {
+          sum += objMenu.fetchMenu().food[pedido];
+        }
+        if (objMenu.fetchMenu().drink[pedido]) {
+          sum += objMenu.fetchMenu().drink[pedido];
+        }
+      }
+      console.log(sum);
+      return sum;
+    },
+  };
+  return objMenu;
+};
+
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = () => {};
 
 module.exports = createMenu;
