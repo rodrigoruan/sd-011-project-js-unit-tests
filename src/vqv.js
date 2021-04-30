@@ -24,4 +24,6 @@ const vqv = (nome, idade) => {
   return paragrafo;
 };
 
+console.log(vqv());
+
 module.exports = vqv;
