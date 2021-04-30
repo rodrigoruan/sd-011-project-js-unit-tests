@@ -21,7 +21,7 @@ const createStudent = (name) => {
   }
   return {
     name,
-    feedBack: () => console.log('Eita pessoa boa!'),
+    feedBack: () => 'Eita pessoa boa!',
   };
 };
 
