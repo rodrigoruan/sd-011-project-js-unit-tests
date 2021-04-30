@@ -15,7 +15,31 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
+const checkNameValid = (name) => {
+  if (!name || !name.trim()) {
+    return undefined
+  }
 
-const vqv = (nome, idade) => {};
+  return name
+};
+
+const checkAgeValid = (age) => {
+  if (!age || age < 0) {
+    return undefined;
+  }
+
+  return age;
+};
+
+const vqv = (nome, idade) => {
+  if (checkNameValid(nome) === undefined || checkAgeValid(idade)  === undefined) {
+    return undefined;
+  }
+  
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
+};
 
 module.exports = vqv;
