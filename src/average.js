@@ -13,17 +13,19 @@
 */
 
 const average = (array) => {
-  let media = '';
   let soma = 0;
-  if (media !== Number || media === String) {
-    return undefined;
+  if (array.length === 0) {
+    return;
   }
-
   for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return;
+    }
+
     const valor = array[index];
-    soma += valor;
+    soma += valor;    
   }
-  return Math.round(soma);
+  return Math.round(soma / array.length);
 };
 
 module.exports = average;
