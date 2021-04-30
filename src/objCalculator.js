@@ -21,12 +21,19 @@
 
 const calculator = (num1, num2) => {
   const operacoes = {
-  add: Math.floor(num1 + num2),
-  mult: Math.floor(num1 * num2),
-  div: Math.floor(num1 / num2),
-  sub: Math.floor(num1 - num2),
+  add() {
+  return Math.floor(num1 + num2);
+  },
+  mult() {
+  return Math.floor(num1 * num2);
+  },
+  div() {
+  return Math.floor(num1 / num2);
+  },
+  sub() {
+  return Math.floor(num1 - num2);
+  },
   };
-  return operacoes;
 };
 
 module.exports = calculator;
