@@ -37,11 +37,12 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     // (Difícil) Teste que os dois productIds terminam com 123.
     //assert.strictEqual(Object.keys(productDetails("um", "dois")), 4); <=DEVOLVE UM ARRAY!!
-    
+  
     assert.strictEqual(Array.isArray(productDetails("um", "dois")), true);
     assert.strictEqual(Object.keys(productDetails("um", "dois")).length, 2);
     assert.strictEqual(typeof(Object.values(productDetails("um", "dois"))),'object' ,'object' );
     assert.notStrictEqual(Object.values(productDetails("um", "dois")[0]), Object.values(productDetails("um", "dois")[1]));
-
+    assert.strictEqual(Object.values(productDetails("um", "dois")[0]),
+                        Object.values(productDetails("um", "dois")[1][productId]));
     });
 });
