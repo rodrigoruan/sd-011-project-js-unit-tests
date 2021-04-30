@@ -14,7 +14,7 @@
 
 const average = (array) => {
 let soma = 0;
-  if (array === []) {
+  if (array.length === 0) {
     return undefined;
   }
 
