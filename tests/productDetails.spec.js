@@ -1,3 +1,4 @@
+const { strictEqual } = require('assert');
 const assert = require('assert');
 const productDetails = require('../src/productDetails');
 
@@ -30,12 +31,20 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
+    // Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+    assert.strictEqual(Array.isArray(productDetails('a', 'b')), true);
     // Teste que o array retornado pela função contém dois itens dentro.
+    assert.strictEqual(Object.keys(productDetails('a', 'b')).length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.strictEqual(typeof productDetails('a', 'b')[0] && typeof productDetails('a', 'b')[1], 'object');
     // Teste que os dois objetos são diferentes entre si.
+    assert.notStrictEqual(productDetails('a', 'b')[0], productDetails('a', 'b')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
+    // Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+    assert.strictEqual(
+      productDetails('a', 'b')[0].details.productId.endsWith('123') &&
+      productDetails('a', 'b')[1].details.productId.endsWith('123'), true);
   });
 });
