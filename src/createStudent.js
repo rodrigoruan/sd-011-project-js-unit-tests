@@ -16,13 +16,14 @@
 */
 
 const createStudent = (name) => {
-  if (name === undefined) {
+  if (name === undefined || name === '') {
     return undefined;
   }
   return {
     name,
-    feedBack: () => 'Eita pessoa boa!',
+    feedBack: 'Eita pessoa boa!',
   };
 };
 
+console.log(createStudent('Leandrão, o Lobo Solitário'));
 module.exports = createStudent;
