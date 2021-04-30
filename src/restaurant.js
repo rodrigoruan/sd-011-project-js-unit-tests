@@ -65,30 +65,40 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const total = (arr) => {
-  const prices = { coxinha: 3.9, sopa: 9.9, agua: 3.9, cerveja: 6.9 };
-  let foods = [];
-  let drinks = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === 'coxinha' || arr[i] === 'sopa') {
-      foods.push(arr[i]);
-    } else {
-      drinks.push(arr[i]);
-    }
-  }
-  foods = foods.map((c) => prices[c]).reduce((a, b) => a + b);
-  drinks = drinks.map((c) => prices[c]).reduce((a, b) => a + b);
-  return ((foods + drinks) / 100) * 10 + foods + drinks;
-};
+function foods(value, food) {
+  return food.map((c) => (c[0] === value ? c[1] : 0)).reduce((a, b) => a + b);
+}
+
+function drinks(value, drink) {
+  return drink.map((c) => (c[0] === value ? c[1] : 0)).reduce((a, b) => a + b);
+}
+
+function total(menu) {
+  let count = 0;
+  const food = Object.entries(menu.fetchMenu().food);
+  const drink = Object.entries(menu.fetchMenu().drink);
+  menu.consumption.map((c) => (count += foods(c, food)));
+  menu.consumption.map((c) => (count += drinks(c, drink)));
+  return (count * 10) / 100 + count;
+}
 
 function createMenu(obj) {
   const x = {
     fetchMenu: () => obj,
     consumption: [],
     order: (a) => x.consumption.push(a),
-    pay: () => total(x.consumption),
+    pay: () => total(x),
   };
   return x;
 }
+
+const objetoRetornado7 = createMenu({
+  food: { coxinha: 3.9, sopa: 9.9 },
+  drink: { agua: 3.9, cerveja: 6.9 },
+});
+objetoRetornado7.order('coxinha');
+objetoRetornado7.order('agua');
+objetoRetornado7.order('coxinha');
+console.log(total(objetoRetornado7));
 
 module.exports = createMenu;

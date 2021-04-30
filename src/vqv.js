@@ -17,7 +17,7 @@
 */
 
 const vqv = (nome, idade) =>
-  (nome === undefined || idade === undefined
+  (!nome || !idade
     ? undefined
     : `Oi, meu nome é ${nome}!
 Tenho ${idade} anos,

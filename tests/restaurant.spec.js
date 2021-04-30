@@ -112,7 +112,10 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
-    const objetoRetornado7 = createMenu({ a: 1, b: 2 });
+    const objetoRetornado7 = createMenu({
+      food: { coxinha: 3.9, sopa: 9.9 },
+      drink: { agua: 3.9, cerveja: 6.9 },
+    });
     objetoRetornado7.order('coxinha');
     objetoRetornado7.order('agua');
     objetoRetornado7.order('coxinha');
