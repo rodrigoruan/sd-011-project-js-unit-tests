@@ -15,12 +15,12 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = (name) => {
-  if (name === undefined || name === '') {
+const createStudent = (nome) => {
+  if (nome === undefined || nome === '') {
     return undefined;
   }
   return {
-    name,
+    name: nome,
     feedBack: () => 'Eita pessoa boa!',
   };
 };
