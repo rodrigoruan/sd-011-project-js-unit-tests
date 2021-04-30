@@ -19,7 +19,7 @@ let soma = 0;
   }
 
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof (array[index]) !== 'string') {
+    if (typeof (array[index]) !== 'number') {
     return undefined;
   }
       soma += array[index];
