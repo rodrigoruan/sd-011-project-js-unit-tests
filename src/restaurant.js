@@ -117,12 +117,4 @@ const createMenu = (obj) => {
   return menu;
 };
 
-const objetoRetornado = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, 
-drink: { agua: 3.9, cerveja: 6.9 } });
-objetoRetornado.order('coxinha');
-objetoRetornado.order('agua');
-objetoRetornado.order('coxinha');
-
-console.log(objetoRetornado.pay());
-
 module.exports = createMenu;
