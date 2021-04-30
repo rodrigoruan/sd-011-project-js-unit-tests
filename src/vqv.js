@@ -17,6 +17,9 @@
 */
 
 const vqv = (nome, idade) => {
+if (!nome || !idade) {
+  return undefined;
+}
 let paragrafo = (`Oi, meu nome é ${nome}!
 Tenho ${idade} anos,
 trabalho na Trybe e mando muito em programação!
