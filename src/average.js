@@ -25,3 +25,5 @@ const average = (arrayNumbers) => {
 }
   return Math.round(num / arrayNumbers.lenght);
 };
+
+module.exports = average;
