@@ -48,9 +48,36 @@ const { create } = require('domain');
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
-const expected = {
+const cardapio = {
   food: { coxinha: 4, sopa: 10 },
   drink: { agua: 1.5, cerveja: 7 },
+};
+
+const foodPrice = (clientConsumption) => {
+  let foodSum = 0;
+  clientConsumption.forEach((j) => {
+    for (let i in Object.entries(cardapio.food)) {
+      let foodItem = Object.entries(cardapio.food)[i];
+      if (foodItem[0] === j) {
+        foodSum += foodItem[1];
+      }
+    }
+  });
+  return foodSum;
+};
+
+const drinkPrice = (clientConsumption) => {
+  let drinkSum = 0;
+  clientConsumption.forEach((j) => {
+    for (let i in Object.entries(cardapio.drink)) {
+      let drinkItem = Object.entries(cardapio.drink)[i];
+      if (drinkItem[0] === j) {
+        drinkSum += drinkItem[1];
+      }
+    }
+  });
+
+  return drinkSum;
 };
 
 const createMenu = (order) => ({
@@ -59,53 +86,16 @@ const createMenu = (order) => ({
   order(item) {
     this.consumption.push(item);
   },
-  pay: () => totalPrice(order),
+  pay() {
+    let total = drinkPrice(this.consumption) + foodPrice(this.consumption);
+    return `Valor total: R$${(total * 1.1).toFixed(2)}`;
+  },
 });
 
-const meuRestaurante = createMenu(expected);
-
-let repeatedOrder = createMenu(expected);
-meuRestaurante.order('coxinha');
-meuRestaurante.order('agua');
-meuRestaurante.order('coxinha');
-console.log(meuRestaurante.consumption);
-
-function foodPrice(clienteOrder) {
-  let foodSum = 0;
-  clienteOrder.consumption.forEach((j) => {
-    for (let i in Object.entries(expected.food)) {
-      let foodItem = Object.entries(expected.food)[i];
-      if (foodItem[0] === j) {
-        console.log(foodItem);
-        foodSum += foodItem[1];
-      }
-    }
-  });
-  return foodSum;
-}
-
-function drinkPrice(clientOrder) {
-  let drinkSum = 0;
-  clientOrder.consumption.forEach((j) => {
-    for (let i in Object.entries(expected.drink)) {
-      let drinkItem = Object.entries(expected.drink)[i];
-      if (drinkItem[0] === j) {
-        console.log(drinkItem);
-        drinkSum += drinkItem[1];
-      }
-    }
-  });
-
-  return drinkSum;
-}
-
-const totalPrice = (clientOrder) => drinkPrice(clientOrder) + foodPrice(clientOrder);
-
-console.log(totalPrice(meuRestaurante));
-//------------------------------------------------------------------------------------------
-
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`,
-// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
-// você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+// const meuCliente = createMenu(cardapio);
+// meuCliente.order('coxinha');
+// meuCliente.order('agua');
+// meuCliente.order('coxinha');
+// assert.ok(meuCliente.pay() === 'Valor total: R$10.45');
 
 module.exports = createMenu;
