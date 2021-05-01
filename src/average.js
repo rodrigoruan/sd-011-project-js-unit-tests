@@ -19,7 +19,7 @@ if (typeof (array) !== 'number' || (array) === []) {
   throw new Error('undefined');
 } else {
   let somaArray = 0;
-  for (let i = 0; i < array.length; i+= 1) {
+  for (let i = 0; i < array.length; i += 1) {
     somaArray += array[i];
   }
   return Math.ceil(somaArray / somaArray.length);
