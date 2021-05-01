@@ -31,8 +31,16 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-   assert.fail()
+    const valores = Object.values(productDetails.name)
     const products = productDetails('alcool gel', 'mascara')
-    
+    assert.deepStrictEqual(Array.isArray(products), true);
+    assert.deepStrictEqual((products).length, 2);
+    assert.deepStrictEqual(typeof products[0], 'object')
+    assert.deepStrictEqual(typeof products[1], 'object')
+    assert.notDeepStrictEqual(products[0], products[1]);
+
+    for (let index = 0; index < products.length; index += 1) {
+      assert.ok(products[index].details.productId.endsWith('123'));
+    }
   });
 });
