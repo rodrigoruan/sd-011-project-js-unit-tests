@@ -14,7 +14,7 @@
 
 const average = (array) => {
   let sum = 0;
-
+  // verifica se é vazio (null) e o se é diferente do tamanho
   if ((array === null) || !array.length) return undefined;
  
 for (let index = 0; index < array.length; index += 1) {
