@@ -22,5 +22,6 @@ const createStudent = (nameStudent) => {
   };
   return object; 
 };
+console.log(createStudent('Andre'));
 
 module.exports = createStudent;
