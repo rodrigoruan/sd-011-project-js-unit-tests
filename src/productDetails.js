@@ -40,4 +40,7 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
-console.log(typeof productDetails());
+
+console.log(productDetails().productId)
+const ip = productDetails()[0].details.productId;
+console.log(ip.slice(-3));
