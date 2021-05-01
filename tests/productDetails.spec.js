@@ -47,8 +47,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.notDeepStrictEqual(productDetails('vini', 'gou')[0], productDetails('vini', 'gou')[1])
 
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(productDetails('vini', 'gouv')[0].details.productId, 'vini123');
-    assert.deepStrictEqual(productDetails('vini', 'gouv')[1].details.productId, 'gouv123');
+    let expected = 123;
+    assert.deepStrictEqual(parseInt(productDetails('v', 'g')[0].details.productId.match(/123$/)), expected);
+    assert.deepStrictEqual(parseInt(productDetails('v', 'g')[1].details.productId.match(/123$/)), expected);
 
   });
 });
