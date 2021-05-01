@@ -10,10 +10,25 @@
     - average([2, 2]) // Retorno: 2;
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
-*/
+// */
+
+const assert = require('assert');
 
 const average = (array) => {
-array;
-};
+if(typeof(array) !== 'number' || (array) === []) {
+  throw new Error ('undefined');
+} else {
+  let somaArray = 0;
+  for (let i = 0; i < array.length; i++) {
+    somaArray += array[i];
+  }
+  return Math.ceil(somaArray / somaArray.length);
+}
+}
+
+// assert.strictEqual(typeof(average), 'function');
+// assert.strictEqual(average([2, 2]), 2);
+// assert.strictEqual(average([1, 1]), 1);
+// assert.strictEqual(average([1, '2']), 'undefined');
 
 module.exports = average;
