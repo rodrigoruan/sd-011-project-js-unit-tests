@@ -40,6 +40,12 @@ describe("6 - Implemente os casos de teste para a função `productDetails`", ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     assert.notStrictEqual(productDetails("a", "b"), "a" !== "b");
     // Teste que os dois objetos são diferentes entre si.
+    assert.strictEqual(
+      productDetails("a", "b")[0].details.productId.endsWith("123"),
+      "123" && productDetails("a", "b")[1].details.productId.endsWith("123"),
+      "123"
+    );
     // (Difícil) Teste que os dois productIds terminam com 123.
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
   });
 });
