@@ -16,13 +16,10 @@
 */
 
 const createStudent = (string) => {
-  function feedbackF() {
-    return `Eita pessoa boa!`
-  }
   return {
     name: string,
-    feedback: feedbackF
-  }
+    feedback: () => 'Eita pessoa boa!'
+  };
 };
-console.log((createStudent('leandrao, o lobo solidario')))
+console.log((createStudent('leandrao, o lobo solidario')));
 module.exports = createStudent;
