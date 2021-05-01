@@ -1,4 +1,3 @@
-/* eslint-disable guard-for-in */
 const _ = require('lodash');
 const assert = require('assert');
 const { create } = require('domain');
@@ -56,12 +55,12 @@ const cardapio = {
 const foodPrice = (clientConsumption) => {
   let foodSum = 0;
   clientConsumption.forEach((j) => {
-    for (let i in Object.entries(cardapio.food)) {
+    _.forIn(Object.entries(cardapio.food), function (value, i) {
       let foodItem = Object.entries(cardapio.food)[i];
       if (foodItem[0] === j) {
         foodSum += foodItem[1];
       }
-    }
+    });
   });
   return foodSum;
 };
@@ -69,12 +68,12 @@ const foodPrice = (clientConsumption) => {
 const drinkPrice = (clientConsumption) => {
   let drinkSum = 0;
   clientConsumption.forEach((j) => {
-    for (let i in Object.entries(cardapio.drink)) {
+    _.forIn(Object.entries(cardapio.food), function (value, i) {
       let drinkItem = Object.entries(cardapio.drink)[i];
       if (drinkItem[0] === j) {
         drinkSum += drinkItem[1];
       }
-    }
+    });
   });
 
   return drinkSum;
@@ -92,10 +91,11 @@ const createMenu = (order) => ({
   },
 });
 
-// const meuCliente = createMenu(cardapio);
-// meuCliente.order('coxinha');
-// meuCliente.order('agua');
-// meuCliente.order('coxinha');
+const meuCliente = createMenu(cardapio);
+meuCliente.order('coxinha');
+meuCliente.order('agua');
+meuCliente.order('coxinha');
+console.log(meuCliente.pay());
 // assert.ok(meuCliente.pay() === 'Valor total: R$10.45');
 
 module.exports = createMenu;
