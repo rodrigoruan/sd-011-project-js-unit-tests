@@ -1,5 +1,7 @@
+/* eslint-disable guard-for-in */
 const _ = require('lodash');
 const assert = require('assert');
+const { create } = require('domain');
 /* eslint-disable max-len */
 
 /*
@@ -46,46 +48,60 @@ const assert = require('assert');
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
+const expected = {
+  food: { coxinha: 4, sopa: 10 },
+  drink: { agua: 1.5, cerveja: 7 },
+};
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-
-const createMenu = (itemObject) => ({ fetchMenu: () => itemObject });
-const meuRestaurante = createMenu({
-  food: { coxinha: 3.9, sopa: 9.9 },
-  drink: { agua: 3.9, cerveja: 6.9 },
+const createMenu = (order) => ({
+  fetchMenu: () => order,
+  consumption: [],
+  order(item) {
+    this.consumption.push(item);
+  },
+  pay: () => totalPrice(order),
 });
 
-let objetoRetornado = createMenu();
-assert.ok(!!objetoRetornado.fetchMenu === true && typeof objetoRetornado.fetchMenu === 'function');
+const meuRestaurante = createMenu(expected);
 
-// assert.deepStrictEqual(objetoRetornado, { fetchMenu: [(Function: fetchMenu)] });
+let repeatedOrder = createMenu(expected);
+meuRestaurante.order('coxinha');
+meuRestaurante.order('agua');
+meuRestaurante.order('coxinha');
+console.log(meuRestaurante.consumption);
 
-// Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
+function foodPrice(clienteOrder) {
+  let foodSum = 0;
+  clienteOrder.consumption.forEach((j) => {
+    for (let i in Object.entries(expected.food)) {
+      let foodItem = Object.entries(expected.food)[i];
+      if (foodItem[0] === j) {
+        console.log(foodItem);
+        foodSum += foodItem[1];
+      }
+    }
+  });
+  return foodSum;
+}
 
-//------------------------------------------------------------------------------------------
+function drinkPrice(clientOrder) {
+  let drinkSum = 0;
+  clientOrder.consumption.forEach((j) => {
+    for (let i in Object.entries(expected.drink)) {
+      let drinkItem = Object.entries(expected.drink)[i];
+      if (drinkItem[0] === j) {
+        console.log(drinkItem);
+        drinkSum += drinkItem[1];
+      }
+    }
+  });
 
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
-// Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
+  return drinkSum;
+}
 
-//------------------------------------------------------------------------------------------
+const totalPrice = (clientOrder) => drinkPrice(clientOrder) + foodPrice(clientOrder);
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro,
-// adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode:
-// - Definir a função `createMenu()`
-// - Definir o objeto que a `createMenu()` retorna, mas separadamente
-// - E, depois, definir a função que será atribuída a `order`.
-// ```
-// const restaurant = {}
-//
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`.
-// // Essa função deve ser associada à chave `order` de `restaurant`
-// ```
-// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
-
+console.log(totalPrice(meuRestaurante));
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`,
