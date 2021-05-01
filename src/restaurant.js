@@ -82,15 +82,15 @@
 const charge = (menu) => {
   let value = 0;
   const { food } = menu.fetchMenu();
-  const { drink } = menu.fetchMenu();
+  const { drinks } = menu.fetchMenu();
 
-  const ObfoodDrink = { ...food, ...drink };
-  for (let index of Object.values(ObfoodDrink)) {
-      value += index;
+  const ObfoodDrink = { ...food, ...drinks };
+  console.log(ObfoodDrink)
+  for (let index of menu.consuption) {
+      value += ObfoodDrink[index] * 1.1;
   }
 
-  let tenPerCent = (value*10)/100;
-  return value + tenPerCent;
+  return value.toFixed(2);
 };
 
 const createMenu = (obj) => {
@@ -111,6 +111,8 @@ const meuRestaurante = createMenu({
 
 meuRestaurante.order('coxinha');
 meuRestaurante.order('agua');
+meuRestaurante.order('coxinha');
+
 
 
 console.log(meuRestaurante.pay());
