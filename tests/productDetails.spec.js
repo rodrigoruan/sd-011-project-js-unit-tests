@@ -34,9 +34,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     const products = productDetails;
     assert.strictEqual(typeof products, 'function');
     assert.strictEqual(products().length, 2);
-    // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.strictEqual(typeof products(), 'object');
     // Teste que os dois objetos são diferentes entre si.
     // (Difícil) Teste que os dois productIds terminam com 123.
   });
 });
-
