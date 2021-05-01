@@ -16,7 +16,7 @@ const assert = require('assert');
 
 const average = (array) => {
 if (typeof (array) !== 'number' || (array) === []) {
-  throw new Error('undefined');
+  throw Error('undefined');
 } else {
   let somaArray = 0;
   for (let i = 0; i < array.length; i += 1) {
