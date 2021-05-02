@@ -28,4 +28,12 @@ const circle = (radius) => {
   };
 };
 
+// console.log(circle(10));
+
+// console.log(Object.values(circle(10)).length);
+
+// console.log(typeof circle(10));
+
+// console.log(circle(10).length); // Não funciona
+
 module.exports = circle;

@@ -33,8 +33,10 @@ const productDetails = (firstProduct, secondProduct) => [
   },
   {
     name: secondProduct,
+    // name: firstProduct,
     details: {
       productId: `${secondProduct}123`,
+      // productId: `${firstProduct}123`,
     },
   },
 ];
