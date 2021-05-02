@@ -27,5 +27,5 @@ const circle = (radius) => {
     circumference: Math.trunc(2 * PI * radius),
   };
 };
-console.log(circle(3));
+// console.log(circle(3));
 module.exports = circle;
