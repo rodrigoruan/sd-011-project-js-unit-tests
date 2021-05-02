@@ -42,4 +42,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
 });
 
 // lessons learned here:
-// 1-
+// 1- coloco as situações que quero obter no lado esquerdo e testo se o resultado daquilo bate com o desejado;
+// 2- uso Object.values(obj)[] para obter um valor especifico dentro do array;
+// 3- uso Object.keys(obj).length para obter o tamanho do objeto.
