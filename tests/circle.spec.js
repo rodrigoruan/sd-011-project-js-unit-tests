@@ -26,11 +26,16 @@ const circle = require('../src/circle');
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     assert.strictEqual(typeof circle, 'function');
-    assert.strictEqual(typeof circle(1), 'object');
-    assert.deepStrictEqual(circle(1), {radius: 1, area: 3.14, circumference: 6.28});
     assert.strictEqual(circle(), undefined);
-    assert.strictEqual(circle(2).circumference, 12.56);
-    assert.strictEqual(parseFloat(circle(3).area.toPrecision(4)), 28.26);
-    assert.deepStrictEqual(circle(3), {radius: 3, area: 28.26, circumference: 18.84});
+    const circulo1 = circle(1);
+    assert.strictEqual(typeof circulo1, 'object');
+    assert.deepStrictEqual(circulo1, {radius: 1, area: 3.14, circumference: 6.28});
+    const circulo2 = circle(2);
+    circulo2.circumference = parseFloat(circulo2.circumference.toPrecision(4));
+    assert.strictEqual(circulo2.circumference, 12.56);
+    const circulo3 = circle(3);
+    circulo3.area = parseFloat(circulo3.area.toPrecision(4));
+    assert.strictEqual(circulo3.area, 28.26);
+    assert.deepStrictEqual(circulo3, {radius: 3, area: 28.26, circumference: 18.84});
   });
 });
