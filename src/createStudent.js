@@ -18,17 +18,9 @@
 const createStudent = (studentName) => {
   const newStudent = {
     name: studentName,
-    feedback: () => 'Eita, pessoa boa!',
+    feedback: () => 'Eita pessoa boa!',
   };
   return newStudent;
 };
-
-// const createStudent = (n) => {
-//   const objeto = {
-//     name: n,
-//     feedback: () => 'Eita pessoa boa!',
-//   };
-//   return objeto;
-// };
 
 module.exports = createStudent;
