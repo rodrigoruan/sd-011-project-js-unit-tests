@@ -80,18 +80,24 @@
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 // o fetchMenu do obj retornado pela função createMenu() retorna as chaves food a drink desse objeto
-const createMenu = () => {
-  return {
+//createMenu({ food: {}, drink: {} });
+const createMenu = (paramObject) => {
+  const inputObject = paramObject;
+  const baseObject = {
     fetchMenu: () => {
       return {
-        food: {},
-        drink: {}
+        food: baseObject.food ,
+        drink: baseObject.drink
       };
     }
   };
+  const returnObject = Object.assign(baseObject, inputObject);
+  return returnObject;
 };
-//  const menuTest = createMenu();
- 
+
+const objetoRetornado = createMenu({ food: {}, drink: {} });
+// console.log(objetoRetornado.fetchMenu()); // Retorno: { food: {}, drink: {}}
+//  console.log(createMenu());
 //  console.log(menuTest.fetchMenu());
 //  console.log(Object.keys(menuTest.fetchMenu()));
 
@@ -104,11 +110,23 @@ const assert = require('assert');
 // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
 assert.strictEqual(typeof (createMenu()['fetchMenu']), 'function');
 
-const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+// const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
 // console.log(createMenu());
 // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
 // verifique que 'objetoRetornadoo.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
 assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), [ 'food', 'drink' ]);
+
+// const objetoRetornado = createMenu({ food: {}, drink: {} });
+// objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
+// TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
+assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {}});
+
+
+
+
+
+
+
 
 
 module.exports = createMenu;
