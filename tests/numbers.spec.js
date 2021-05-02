@@ -20,7 +20,7 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
   it('Verifica se a função `numbers`retorna um array e se o array retornado contém somente números', () => {
     assert.fail();
     // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
-    assert.ok(numbers([1, 2, 3, 4, 5]), true);
+    assert.ok(numbers([1, 2, 3, 4, 5]));
 
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
     assert.ok(!numbers([1, 2, '3', 4, 5]));
