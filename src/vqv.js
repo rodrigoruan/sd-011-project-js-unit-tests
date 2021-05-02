@@ -17,16 +17,10 @@
 */
 
 const vqv = (nome, idade) => {
-  let whoIAm;
   if (typeof (nome) === 'undefined' || typeof (idade) === 'undefined') {
-    whoIAm = undefined;
-  } else {
-    whoIAm = `Oi, meu nome é ${nome}!
-    Tenho ${idade} anos,
-    trabalho na Trybe e mando muito em programação!
-    #VQV!`;
+    return undefined;
   }
-  return whoIAm;
+  return `Oi, meu nome é ${nome}!\nTenho ${idade} anos,\ntrabalho na Trybe e mando muito em programação!\n#VQV!`;
 };
 
 module.exports = vqv;
