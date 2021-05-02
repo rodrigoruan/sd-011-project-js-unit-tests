@@ -7,48 +7,32 @@ const createMenu = require('../src/restaurant');
   - fazer pedidos;
   - verificar o que foi pedido;
   - somar o valor da conta.
-
   A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
   Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o bom desenvolvimento do sistema. Eles guiarão você pelo desenvolvimento.
-
   Parâmetros:
   - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
   Comportamento:
-
   const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
-
   meuRestaurante.fetchMenu() // Retorno: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
-
   meuRestaurante.order('coxinha') // Retorno: undefined
-
   meuRestaurante.consumption // Retorno: ['coxinha']
-
   meuRestaurante.pay() // Retorno: 3.9
-
   Uma função createMenu retorna um objeto com as seguintes características:
   - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
-
   const meuRestaurante = createMenu({
     food: {'coxinha': 3.90, 'sanduiche', 9.90},
     drinks: {'agua': 3.90, 'cerveja': 6.90}
   });
-
   meuRestaurante.fetchMenu() // Retorno: Menu acima
-
   - Uma chave `consumption` que contém um array de strings, com cada string sendo a chave de um pedido. Por exemplo: ['coxinha', 'cerveja']
-
   - Uma chave `order` que tem uma função que, recebida uma string como parâmetro, adiciona essa string à lista salva em `consumption`.
-
   - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
-
   IMPORTANTE: FAÇA OS TESTES E PASSOS DE ACORDO COM A ORDEM INDICADA!
-
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
@@ -111,4 +95,51 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
+  const emptyMenuStyle = { food: {}, drink: {} };
+  const itensForMenu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+  
+  assert.strictEqual(typeof(createMenu(emptyMenuStyle)), 'object');
+  assert.strictEqual(typeof(createMenu(emptyMenuStyle).fetchMenu), 'function');
+  
+  assert.deepStrictEqual(Object.keys(createMenu(emptyMenuStyle).fetchMenu()), ['food', 'drink']);
+  
+  assert.strictEqual(createMenu(emptyMenuStyle).fetchMenu(), emptyMenuStyle);
+  assert.deepStrictEqual(createMenu(itensForMenu).fetchMenu(), itensForMenu);
+  
+  assert.deepStrictEqual(createMenu(itensForMenu).consumption, []);
+  
+  let menu = createMenu(itensForMenu);
+  menu.order('coxinha');
+  assert.deepStrictEqual(menu.consumption.includes('coxinha'), true);
+  
+  menu.order('agua');
+  menu.order('sopa');
+  menu.order('sashimi');
+  assert.deepStrictEqual(menu.consumption, ['coxinha', 'agua', 'sopa', 'sashimi']);
+  
+  menu.order('coxinha');
+  menu.order('agua');
+  menu.order('coxinha');
+  assert.deepStrictEqual(menu.consumption, ['coxinha', 'agua', 'sopa', 'sashimi', 'coxinha', 'agua', 'coxinha']);
+  
+  let priceList = {
+    food: {
+      coxinha: 6.90,
+      sashimi: 7.50,
+      sopa: 6.00,
+    },
+    drink: {
+      agua: 4.50,
+      cafe: 8.00,
+    },
+  };
+
+  let cashRegister = createMenu(priceList);
+  cashRegister.order('sashimi');
+  cashRegister.order('sopa');
+  cashRegister.order('agua');
+  cashRegister.order('cafe');
+  cashRegister.order('coxinha');
+
+  assert.strictEqual(cashRegister.pay(), 36);
 });
