@@ -47,10 +47,10 @@ const assert = require('assert');
 
 // ESCREVA SEUS TESTES ABAIXO:
 // Teste que o retorno da função é um array.
-assert.deepStrictEqual(typeof(productDetails()), 'object');
+assert.deepStrictEqual(typeof (productDetails()), 'object');
 
 // ------ Porque retorna object se o retorno é um array? 
-//assert.deepStrictEqual(typeof(productDetails()), '[]');
+// assert.deepStrictEqual(typeof(productDetails()), '[]');
 // Teste que o array retornado pela função contém dois itens dentro.
 
 const product = productDetails('Alcool gel', 'Máscara');
@@ -60,8 +60,8 @@ const product1 = product[0];
 const product2 = product[1];
 
 // Teste que os dois itens dentro do array retornado pela função são objetos.
-assert.deepStrictEqual( typeof(product1), 'object');
-assert.deepStrictEqual( typeof(product2), 'object');
+assert.deepStrictEqual(typeof (product1), 'object');
+assert.deepStrictEqual(typeof (product2), 'object');
 
 // Teste que os dois objetos são diferentes entre si.
 assert.deepStrictEqual(product1 !== product2, true);
