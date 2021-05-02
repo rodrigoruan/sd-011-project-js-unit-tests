@@ -12,8 +12,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+// Consegui depois de receber ajudar da Beatriz Ramalho em uma call no Slack
 
+const average = (array) => {
+  let divisor = array.length; // numero que sera usado para dividir para conseguir a media
+  let sumArray = 0; // valor da soma de todos os números do array.
+  
+  if (array.length < 1) return undefined;
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') return undefined;
+    sumArray += array[index];
+ } 
+ return Math.round(sumArray / divisor);
+};
+
+const example = [1, 2, 3];
+console.log(average(example));
+// A função avarage recebe um array
 module.exports = average;
-
-// ta ok
