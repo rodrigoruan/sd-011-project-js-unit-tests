@@ -118,6 +118,7 @@ const createMenu = (paramObject) => {
 const assert = require('assert');
 const objetoRetornado = createMenu({ food: {}, drink: {} });
 
+
 // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
 // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
 assert.strictEqual(typeof (createMenu()['fetchMenu']), 'function');
@@ -136,6 +137,11 @@ assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: 
 // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
 assert.deepStrictEqual(objetoRetornado.consumption, []);
 
+
+// TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
+// como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
+objetoRetornado.order('coxinha');
+assert.deepStrictEqual(objetoRetornado.consumption[0], 'coxinha');
 // console.log(objetoRetornado.consumption);
 
 
