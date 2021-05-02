@@ -36,7 +36,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
-    assert.strictEqual(typeof createMenu(), 'object');
+    assert.strictEqual(typeof createMenu().fetchMenu, 'function');
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
@@ -50,14 +50,13 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
-    assert.strictEqual(objetoRetornado.fetchMenu(), objetoRetornado); // Retorno: objetoQualquer
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
-    // objetoRetornado.consumption // Retorno: []
+    assert.deepStrictEqual(objetoRetornado.consumption, [])
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -68,24 +67,33 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("coxinha");
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
+    assert.strictEqual(objetoRetornado.order("coxinha"), undefined);
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
     // objetoRetornado.order("coxinha");
-    // objetoRetornado.order("agua");
-    // objetoRetornado.order("sopa");
-    // objetoRetornado.order("sashimi");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("sopa");
+    objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
+    function countFunction() {
+      let count = 0;
+      for (let i = 1; i < objetoRetornado.consumption.length; i += 1) {
+        count += 1;
+      }
+      return count;
+    }
+    assert.strictEqual(countFunction(), 3);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.order('agua');
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    // objetoRetornado.comsuption = [];
+    objetoRetornado.order('coxinha');
+    assert.strictEqual(countFunction(), 4);
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -97,5 +105,39 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+    const objectForMenu = { 
+      food: {
+        coxinha: 3.9,
+        sopa: 9.9,
+        sashimi: 8.5
+      }, 
+      drink: {
+        agua: 3.9,
+        cerveja: 6.9
+      }
+    };
+
+    function payList() {
+      let valueToPay = 0;
+      const listOfPayFood = Object.entries(objectForMenu.food);
+      const listOfPayDrink = Object.entries(objectForMenu.drink);
+    
+      if (listOfPayFood[0][0] === objetoRetornado.consumption[0]) {
+        valueToPay += listOfPayFood[0][1];
+      }
+      if (listOfPayFood[1][0] === objetoRetornado.consumption[0]) {
+          valueToPay += listOfPayFood[0][1];
+      }
+      if (listOfPayDrink[0][0] === objetoRetornado.consumption[0]) {
+          valueToPay += listOfPayDrink[0][1];
+      }
+      if (listOfPayDrink[1][0] === objetoRetornado.consumption[0]) {
+          valueToPay += listOfPayDrink[0][1];
+      }
+      return valueToPay;
+    }
+    const toPay = payList();
+
+    assert.strictEqual(toPay, 3.9);
   });
 });
