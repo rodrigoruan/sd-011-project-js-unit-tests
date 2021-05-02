@@ -1,5 +1,7 @@
 const assert = require('assert');
 const productDetails = require('../src/productDetails');
+const productId1 = productDetails()[0].details.productId;
+const productId2 = productDetails()[1].details.productId;
 
 /*
   Dadas duas strings que representam nomes de produtos, retorne um array contendo dois objetos com os detalhes dos respectivos produtos.
@@ -42,7 +44,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.notStrictEqual(productDetails()[0],productDetails()[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.strictEqual(productDetails()[0].details.productId.slice(productDetails()[0].details.productId.length-3,productDetails()[0].details.productId.length), '123');
-    assert.strictEqual(productDetails()[0].details.productId.slice(productDetails()[0].details.productId.length-3,productDetails()[1].details.productId.length), '123');
+    assert.strictEqual(productId1.slice(productId1.length - 3, productId1.length), '123');
+    assert.strictEqual(productId2.slice(productId2.length - 3, productId2.length), '123');
   });
 });
