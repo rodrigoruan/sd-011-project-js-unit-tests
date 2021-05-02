@@ -40,3 +40,4 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+console.log(productDetails()[0] === productDetails()[1]);
