@@ -18,14 +18,13 @@ const goodPerson = 'Eita pessoa boa!';
 const createStudent = (name) => {
   const student = {
     name,
-    feedback: () => goodPerson
-    }
+    feedback: () => goodPerson,
+    };
     return student;
   };
 
   // const estudante = createStudent('Leandrão, o Lobo Solitário');
   // console.log(estudante.name);
   // console.log(estudante.feedback());
-
 
 module.exports = createStudent;
