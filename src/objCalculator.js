@@ -19,7 +19,6 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-
 const calculator = {
   add: (param1, param2) => param1 + param2,
   mult: (param1, param2) => param1 * param2,

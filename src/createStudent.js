@@ -18,8 +18,9 @@ const goodPerson = 'Eita pessoa boa!';
 const createStudent = (name) => {
   const student = {
     name,
-    feedback: () => {return goodPerson},
-  }
+    feedback: () => goodPerson
+    }
+  };
 
   return student;
 };
