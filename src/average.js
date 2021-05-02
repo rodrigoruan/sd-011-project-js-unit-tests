@@ -12,28 +12,27 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-
 const average = (array) => {
-
-  if (array.length === 0){
+  if (array.length === 0) {
     return undefined;
   }
 
-  for (let index = 0; index < array.length; index += 1){
-    if (typeof(array[index]) !== 'number'){
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
       return undefined;
     } 
   }
   let sum = 0;
-  for (let cont = 0; cont < array.length; cont += 1){
-    sum = sum + array[cont];
+  for (let cont = 0; cont < array.length; cont += 1) {
+    sum += array[cont];
   }
-  //console.log(`O valor da soma de todos os ${array.length} elementos do vetor é ${sum}`);
-  let total = Math.round(sum/array.length);
-  //console.log(`Temos uma média de ${total}`);
+
+  // Console.log(`O valor da soma de todos os ${array.length} elementos do vetor é ${sum}`);
+  let total = Math.round(sum / array.length);
+  // Console.log(`Temos uma média de ${total}`);
+
   return total;
 };
 
-//average([3, 4, 5]);
+  // Average([3, 4, 5]);
 module.exports = average;
-
