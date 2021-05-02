@@ -79,6 +79,36 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+// o fetchMenu do obj retornado pela função createMenu() retorna as chaves food a drink desse objeto
+const createMenu = () => {
+  return {
+    fetchMenu: () => {
+      return {
+        food: {},
+        drink: {}
+      };
+    }
+  };
+};
+//  const menuTest = createMenu();
+ 
+//  console.log(menuTest.fetchMenu());
+//  console.log(Object.keys(menuTest.fetchMenu()));
+
+
+
+
+const assert = require('assert');
+
+// TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
+// mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
+assert.strictEqual(typeof (createMenu()['fetchMenu']), 'function');
+
+const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+// console.log(createMenu());
+// TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
+// verifique que 'objetoRetornadoo.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
+assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), [ 'food', 'drink' ]);
+
 
 module.exports = createMenu;
