@@ -17,5 +17,7 @@ const numbers = (myArray) => {
   }
   return true;
 };
+const assert = require('assert');
+
 
 module.exports = numbers;
