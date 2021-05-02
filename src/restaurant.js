@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+const { TestScheduler } = require('jest');
+
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, 
   cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
@@ -52,7 +54,7 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
+
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -71,6 +73,7 @@
 // const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
+
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -78,7 +81,25 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+// referência: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this.
 
-const createMenu = () => {};
-
-module.exports = createMenu;
+const orderFromMenu = (str) =>
+  this.consumption.push(str);
+  
+  const createMenu = (obj) => ({
+    fetchMenu: () => obj,
+    consumption: [],
+    order: orderFromMenu,
+    pay: () => {
+        let sum = 0;
+        let objReturn = this.fetchMenu();
+        for (let item of this.consumption) {
+         let items = objReturn.drink[item] ? objReturn.drink[item] : objReturn.food[item];
+         sum += items;
+        }
+      let amount = Math.round(sum + sum * 0.10);
+      return amount;
+    },
+  });
+  
+module.exports = createMenu; 
