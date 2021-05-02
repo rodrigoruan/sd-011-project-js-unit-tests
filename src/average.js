@@ -12,8 +12,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // só p commitar
-};
+const average = (param) => {
+  // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Indexed_collections     isNumber
+  function isNumber(valor) {
+    return typeof valor === 'number';
+  }
+  if (param.every(isNumber) !== true || param.length === 0) {
+    return undefined;
+  }
+  let index = 0;
+  let soma = 0;
+  for (; index < param.length; index += 1) {
+    soma += param[index];
+  }
+  // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/round      Math.round
+  let output = Math.round(soma / index);
 
+  return output;
+};
 module.exports = average;
