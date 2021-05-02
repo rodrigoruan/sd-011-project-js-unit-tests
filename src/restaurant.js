@@ -79,6 +79,16 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (Obj) => ({ // Porque os colchetes? Perguntar no plantao.
+  fetchMenu: () => Obj,
+  consumption: [],
+  order(string) { return this.consumption.push(string); }, // Porque nao funcionar com o arrow function ? Como pegar o nome que origina a chamada?
+  pay() {
+    const consumables = Object.assign(...Object.values(this.fetchMenu())); // Porque nao funciona com o this ?
+    console.log(consumables);
+    console.log(this.consumption);
+    return this.consumption.reduce((total, item) => total + consumables[item], 0);
+  },
+});
 
 module.exports = createMenu;
