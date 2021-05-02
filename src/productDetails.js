@@ -40,4 +40,4 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
-console.log(productDetails()[0] === productDetails()[1]);
+console.log(typeof(productDetails()[0].details.productId));
