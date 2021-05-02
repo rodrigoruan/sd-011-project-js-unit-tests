@@ -15,15 +15,21 @@
 const assert = require('assert');
 
 const average = (array) => {
-if (typeof (array) !== 'number' || (array) === []) {
-  throw new Error(undefined);
-} else {
   let somaArray = 0;
-  for (let i = 0; i < array.length; i += 1) {
-    somaArray += array[i];
+  let resultado = 0;
+
+  if (array.length === 0) {
+    return undefined;
   }
-  return Math.ceil(somaArray / somaArray.length);
-}
-};
+  for (let index of array) {
+    if (typeof index !== 'number') {
+      return undefined; 
+    }
+    somaArray += index;
+  }
+  resultado = somaArray / array.length;
+    return Math.round(resultado);
+  };
+
 
 module.exports = average;
