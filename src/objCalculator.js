@@ -18,7 +18,13 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
+//* Fonte: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 
-const calculator = {};
-
+  const calculator = {
+    add: (param1, param2) => Math.floor(param1 + param2),
+    mult: (param1, param2) => Math.floor(param1 * param2),
+    div: (param1, param2) => Math.floor(param1 / param2),
+    sub: (param1, param2) => Math.floor(param1 - param2),
+  };
+ 
 module.exports = calculator;

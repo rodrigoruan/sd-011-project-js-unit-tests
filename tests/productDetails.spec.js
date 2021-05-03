@@ -45,7 +45,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.notDeepStrictEqual(product1, product2);
     // (Difícil) Teste que os dois productIds terminam com 123.
     // * Fonte: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
-    assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara')[0].details.productId.endsWith(123), true);
+    assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara')[0].details.productId.endsWith(123), true); // dentro de productId no objeto details
     assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara')[1].details.productId.endsWith(123), true);
   });
 });
