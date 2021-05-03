@@ -21,11 +21,10 @@ const vqv = (nome, idade) => {
     return undefined;
   }
 
-  let paragraph = ' ';
- paragraph = `Oi, meu nome é ${nome}!\n
-Tenho ${idade} anos,\n
-trabalho na Trybe e mando muito em programação!\n
-#VQV!`;
+return `Oi, meu nome é ${nome}!\n
+  Tenho ${idade} anos,\n
+  trabalho na Trybe e mando muito em programação!\n
+  #VQV!`;
 };
-  vqv('Tunico', 30);
+  vqv('Genivaldo', 34);
 module.exports = vqv;
