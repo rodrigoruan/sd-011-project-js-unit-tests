@@ -85,9 +85,10 @@ const createMenu = (myMenu) => {
     consumption: [],
     order: (s) => objetoRetornado.consumption.push(s),
     pay: () => {
-      const cardapio = Object.assign({}, testeMenu.fetchMenu().food, testeMenu.fetchMenu().drink);
+      const cardapio = { ...objetoRetornado.fetchMenu().food, ...objetoRetornado.fetchMenu().drink };
       let soma = 0;
-      for (let index of testeMenu.consumption) {
+      for (let index of objetoRetornado.consumption) {
+        console.log(index);
         soma += cardapio[index] * 1.1;
       }
       return soma.toFixed(2);
@@ -95,9 +96,10 @@ const createMenu = (myMenu) => {
   };
   return objetoRetornado;
 };
-const testeMenu = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+const testeMenu = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
 testeMenu.order('coxinha');
 testeMenu.order('agua');
 testeMenu.order('coxinha');
 console.log(testeMenu.pay());
+
 module.exports = createMenu;
