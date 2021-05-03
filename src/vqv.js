@@ -16,14 +16,13 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {
-  if (!nome || !idade) {
-    return undefined;
-  }
-  return `'Oi, meu nome é ${nome}!
-  Tenho ${idade} anos,
-  trabalho na Trybe e mando muito em programação!
-  #VQV!'`;
-};
+const vqv = (nome, idade) => (
+  (nome !== undefined || idade !== undefined)
+  ? `Oi, meu nome é ${nome}!
+  Tenho${idade} anos,
+  trabalho na trybe e mando muito em programação!
+  #VQV`
+  : undefined
+);
 
 module.exports = vqv;
