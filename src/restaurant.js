@@ -89,19 +89,20 @@ const createMenu = (parametro) => {
     fetchMenu: () => parametro,
     consumption: [],
     order: (food) => ordem(food, menu),
-    pay: () => {
-      const cardapio = Object.assign({}, testeMenu.fetchMenu().food, testeMenu.fetchMenu().drink);
-      let soma = 0;
-      for (let index of testeMenu.consumption) {
-        soma += cardapio[index] * 1.1;
-      }
-      return soma.toFixed(2);
-    },  
-  };  
+    pay: () => payMenu(menu),
+   } 
   return menu;
 };
-
 const testeMenu = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
+
+function payMenu (menu) {
+  const cardapio = { ...testeMenu.fetchMenu().food, ...testeMenu.fetchMenu().drink };
+  let soma = 0;
+  for (let index of testeMenu.consumption) {
+    soma += cardapio[index] * 1.1;
+  }
+  return soma.toFixed(2);
+}
 testeMenu.order('coxinha');
 testeMenu.order('agua');
 testeMenu.order('coxinha');
