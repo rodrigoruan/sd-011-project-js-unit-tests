@@ -85,7 +85,10 @@ const createMenu = (myMenu) => {
     consumption: [],
     order: (s) => objetoRetornado.consumption.push(s),
     pay: () => {
-      const cardapio = { ...objetoRetornado.fetchMenu().food, ...objetoRetornado.fetchMenu().drink };
+      const cardapio = { 
+        ...objetoRetornado.fetchMenu().food,
+        ...objetoRetornado.fetchMenu().drink,
+      };
       let soma = 0;
       for (let index of objetoRetornado.consumption) {
         console.log(index);
@@ -96,7 +99,10 @@ const createMenu = (myMenu) => {
   };
   return objetoRetornado;
 };
-const testeMenu = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
+const testeMenu = createMenu({ 
+  food: { coxinha: 3.9, sopa: 9.9 },
+  drink: { agua: 3.9, cerveja: 6.9 },
+});
 testeMenu.order('coxinha');
 testeMenu.order('agua');
 testeMenu.order('coxinha');
