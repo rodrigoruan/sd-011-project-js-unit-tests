@@ -26,5 +26,4 @@ return `Oi, meu nome é ${nome}!\n
   trabalho na Trybe e mando muito em programação!\n
   #VQV!`;
 };
-  vqv('Genivaldo', 34);
 module.exports = vqv;
