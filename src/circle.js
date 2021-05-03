@@ -18,14 +18,13 @@
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
 
-const floatFix = (n) => parseFloat((n).toPrecision(5));
 const circle = (radius) => {
   const PI = 3.14;
   if (!radius) { return undefined; }
   return {
     radius,
-    area: floatFix(PI * radius * radius),
-    circumference: floatFix(2 * PI * radius),
+    area: PI * radius * radius,
+    circumference: 2 * PI * radius,
   };
 };
 
