@@ -17,10 +17,14 @@
 */
 
 const vqv = (nome, idade) => {
+  if(!nome || !idade) {
+    return undefined
+  }
+
   let paragraph = ' ';
- paragraph = `Oi, meu nome é ${nome}!
-Tenho ${idade} anos,
-trabalho na Trybe e mando muito em programação!
+ paragraph = `Oi, meu nome é ${nome}!\n
+Tenho ${idade} anos,\n
+trabalho na Trybe e mando muito em programação!\n
 #VQV!`;
 };
   vqv('Tunico', 30);
