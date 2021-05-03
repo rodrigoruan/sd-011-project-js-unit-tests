@@ -45,42 +45,10 @@
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-//
-// Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
-// Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
-// adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode: 
-// - Definir a função `createMenu()`
-// - Definir o objeto que a `createMenu()` retorna, mas separadamente 
-// - E, depois, definir a função que será atribuída a `order`.
-// ```
-// const restaurant = {}
-//
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
-// // Essa função deve ser associada à chave `order` de `restaurant`
-// ```
-// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-// o fetchMenu do obj retornado pela função createMenu() retorna as chaves food a drink desse objeto
-//createMenu({ food: {}, drink: {} });
 const createMenu = (paramObject) => {
   const inputObject = paramObject;
   const baseObject = {
@@ -93,44 +61,34 @@ const createMenu = (paramObject) => {
         food: baseObject.food ,
         drink: baseObject.drink
       };
+    },
+    pay: () => {
+
     }
   };
   const returnObject = Object.assign(baseObject, inputObject);
   return returnObject;
 };
 
-// const objetoRetornado2 = createMenu({ food: {}, drink: {} });
-// objetoRetornado2.order('Test');
-// console.log(objetoRetornado2.consumption);
+// const testObject = createMenu({ food: {}, drink: {} });
+// console.table(testObject);
+// testObject.order()
+
 
 
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
-
-// console.log(objetoRetornado.fetchMenu()); // Retorno: { food: {}, drink: {}}
-//  console.log(createMenu());
-//  console.log(menuTest.fetchMenu());
-//  console.log(Object.keys(menuTest.fetchMenu()));
-
-
-
-
 const assert = require('assert');
 const objetoRetornado = createMenu({ food: {}, drink: {} });
-
 
 // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
 // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
 assert.strictEqual(typeof (createMenu()['fetchMenu']), 'function');
 
-// const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
-// console.log(createMenu());
 // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
 // verifique que 'objetoRetornadoo.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
 assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), [ 'food', 'drink' ]);
 
-// const objetoRetornado = createMenu({ food: {}, drink: {} });
-// objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
 // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
 assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {}});
 
@@ -142,9 +100,34 @@ assert.deepStrictEqual(objetoRetornado.consumption, []);
 // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
 objetoRetornado.order('coxinha');
 assert.deepStrictEqual(objetoRetornado.consumption[0], 'coxinha');
-// console.log(objetoRetornado.consumption);
 
+// TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
+    // ```
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("sopa");
+    objetoRetornado.order("sashimi");
+   console.table( objetoRetornado.consumption) // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
+   console.log( objetoRetornado.consumption) // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
 
-
+    // Agora faça o TESTE 7 deste arquivo.
+    // --------------------------------------------------------------------------------------
+    // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
+    // ```
+    // objetoRetornado.order('coxinha');
+    // objetoRetornado.order('agua');
+    // objetoRetornado.order('coxinha');
+    // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    // ```
+    // Agora faça o TESTE 8 deste arquivo.
+    // --------------------------------------------------------------------------------------
+    // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
+    // ```
+    // objetoRetornado.order('coxinha');
+    // objetoRetornado.order('agua');
+    // objetoRetornado.order('coxinha');
+    // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
+    // ```
+    // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 
 module.exports = createMenu;
