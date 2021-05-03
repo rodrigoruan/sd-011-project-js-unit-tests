@@ -17,8 +17,6 @@ const average = (arrayEx) => {
   if (!arrayEx.length || teste === false) {
     return (undefined);
   }
-  
-  return (Math.round(arrayEx.reduce((total, numero) => total + numero, 0) / arrayEx.length));
+    return (Math.round(arrayEx.reduce((total, numero) => total + numero, 0) / arrayEx.length));
 };
-
 module.exports = average;

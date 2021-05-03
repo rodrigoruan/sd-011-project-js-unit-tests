@@ -45,7 +45,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(typeof(Object.values(productDetails("um", "dois"))),'object' ,'object' );
     assert.notStrictEqual(Object.values(productDetails("um", "dois")[0]), 
                           Object.values(productDetails("um", "dois")[1]));
-    //assert.strictEqual(Object.values(productDetails("um", "dois")[0]),
-    //                    Object.values(productDetails("um", "dois")[1][productId]));
+    
+    assert.deepStrictEqual(parseInt(productDetails("um", "dois")[0].details.productId.match(/123$/)), 123);
+    assert.deepStrictEqual(parseInt(productDetails("um", "dois")[1].details.productId.match(/123$/)), 123);
+
     });
 });
