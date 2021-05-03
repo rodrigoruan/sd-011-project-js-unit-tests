@@ -6,7 +6,7 @@ const createMenu = require('../src/restaurant');
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
     
-    let menu = { food: {}, drink: {}};
+    let menu = {food:{},drink: {}};
     const objetoRetornado = createMenu(menu);
     const fetchMenus = objetoRetornado.fetchMenu();
 
@@ -15,23 +15,40 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     assert.strictEqual(fetchMenus, menu);
     assert.deepStrictEqual(objetoRetornado.consumption, []);
 
+// Referência: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
     objetoRetornado.order('coxinha');
-    assert.deepStrictEqual(Object.values(objetoRetornado.consumption), 'coxinha');
+    assert.strictEqual(objetoRetornado.consumption.includes('coxinha'), true);
 
-    objetoRetornado.order("coxinha");
-    objetoRetornado.order("agua");
-    objetoRetornado.order("sopa");
-    objetoRetornado.order("sashimi");
-    assert.strictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa", "sashimi"]);
-    
-    objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
-    objetoRetornado.order('coxinha');
-    assert.strictEqual(objetoRetornado.comsuption,['coxinha', 'agua', 'coxinha']);
+    objetoRetornado.order('sopa');
+
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'agua', 'sopa']);
+    
+
+    objetoRetornado.order('coca');
+
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'agua', 'sopa', 'coca']);
   
     objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');
-    assert.strictEqual(objetoRetornado.pay(), (3,9 * 3));
+   
+    let testeMenu = {
+      food: {
+        coxinha: 3.9,
+        sopa: 3.9,
+      },
+      drink: {
+        agua: 3.9,
+        coca: 3.9,
+      },
+    }
+    const objetoRetornado2 = createMenu(testeMenu);
+    objetoRetornado2.order('coxinha');
+    objetoRetornado2.order('sopa');
+    objetoRetornado2.order('agua')
+
+    assert.strictEqual(objetoRetornado2.pay(), 43);
+
   });
 });
