@@ -16,8 +16,8 @@ const average = (array) => {
   let num = 1;
   const count = array.length;
 
-  if(typeof(array) !== 'object' || array.length === 0) {
-    throw new Error ('undefined');
+  if (typeof (array) !== 'object' || array.length === 0) {
+    throw new Error('undefined');
   }
   for (let val of array) {
     if (typeof val !== 'number') {
@@ -25,7 +25,7 @@ const average = (array) => {
     }
     num += val;
   }
-  return Math.round(num / count)
-}
+  return Math.round(num / count);
+};
 
 module.exports = average;
