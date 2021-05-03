@@ -20,7 +20,7 @@ const average = (numberArray) => {
   }
   for (let index = 0; index < items; index += 1) {
     const item = numberArray[index];
-    if (typeof (item) !== 'number') {
+    if (typeof (item) === 'number') {
       return undefined;
     }
     soma += item;
