@@ -99,7 +99,7 @@ const createMenu = (object) => {
           totalPayment += object.drink[consumption[index]];
         }
       }
-      return totalPayment;
+      return totalPayment * 1.1;
     },
   };
   return menu;
