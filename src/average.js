@@ -15,7 +15,7 @@
 const average = (numberArray) => {
   let soma = 0;
   let items = numberArray.length;
-  if (!numberArray) {
+  if (!items) {
     return undefined;
   }
   for (let index = 0; index < items; index += 1) {
