@@ -24,8 +24,8 @@ const circle = (radius) => {
   return {
     radius,
     //! onde aprendi a arredontar https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
-    area: Math.round((PI * radius * radius) * 100) / 100,
-    circumference: Math.round((2 * PI * radius) * 100) / 100,
+    area: PI * radius * radius,
+    circumference: 2 * PI * radius,
   };
 };
 console.log(circle(3));
