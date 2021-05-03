@@ -83,7 +83,6 @@ const charge = (menu) => {
   let value = 0;
   const { food } = menu.fetchMenu();
   const { drinks } = menu.fetchMenu();
-
   const ObfoodDrink = { ...food, ...drinks };
   
   for (let index of menu.consumption) {
