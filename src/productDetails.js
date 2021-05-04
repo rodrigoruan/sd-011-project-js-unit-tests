@@ -10,7 +10,7 @@
   productDetails('Alcool gel', 'Máscara') // Retorna:
   [
     {
-      name: 'Alcool gel'
+      name: 'Alcool gel'  
       details: {
         productId: 'Alcool gel123'
       }
