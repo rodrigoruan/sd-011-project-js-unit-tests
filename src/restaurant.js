@@ -96,6 +96,8 @@ function givesrinkValue(price, drink) {
   return 0;
 }
 
+const restaurant = {};
+
 function paymentPrice(menu) {
   let counter = 0;
   const food = Object.entries(menu.fetchMenu().food);
