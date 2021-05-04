@@ -22,7 +22,7 @@ const average = (array) => {
     sum += num;
   }
   const media = sum / array.length;
-  return Math.ceil(media);
+  return Math.round(media);
 };
 
 console.log(average([1, 1]));
