@@ -27,7 +27,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
-    const obj = circle(1);
+    let obj = circle(1);
     // Teste se circle retorna um objeto.
     assert.deepStrictEqual(typeof(circle(1)), 'Object');
     // Teste se o objeto retornado tem 3 entradas.
