@@ -81,32 +81,41 @@
 
 let orderFromMenu;
 
-const createMenu = (myMenu) => ({
-  fetchMenu: () => myMenu,
-  consumption: [],
-  order: orderFromMenu,
-});
-
-orderFromMenu = (request) => createMenu.consumption.push(request);
-orderFromMenu('coxinha');
-
-const restaurant = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } }).fetchMenu();
-
-const menuList = Object.assign(Object.values(restaurant)[0], Object.values(restaurant)[1]);
-let requestList = createMenu.consumption;
-
-createMenu.pay = () => {
-  let sum = 0;
-  let requestedFood = '';
-  for (let requestIndex = 0; requestIndex < requestList.length; requestIndex += 1) {
-    requestedFood = requestList[requestIndex];
-      if (menuList[requestedFood]) {
-        sum += menuList[requestedFood];
+const createMenu = (myMenu) => {
+  const menu = {
+    fetchMenu: () => myMenu,
+    order: (request) => menu.consumption.push(request),
+    consumption: [],
+    pay: () => {
+      let sum = 0;
+      let requestedItem = '';
+      let requestList = menu.consumption;
+      let foodMenu = menu.fetchMenu().food;
+      let drinkMenu = menu.fetchMenu().drink;
+      let menuList = Object.assign(foodMenu, drinkMenu);
+      for (let requestIndex = 0; requestIndex < requestList.length; requestIndex += 1) {
+        requestedItem = requestList[requestIndex];
+          if (menuList[requestedItem]) {
+            sum += menuList[requestedItem];
+          }
       }
-  }
-  return sum * 1.1;
+      let result = sum * 1.1;
+      return parseFloat(result.toFixed(2));
+    },
+  };
+  return menu;
 };
 
-console.log(createMenu.consumption);
+// orderFromMenu = (request) => createMenu().consumption.push(request);
+    
+// createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } }).fetchMenu();
+
+let objetoQualquer = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
+const objetoRetornado = createMenu(objetoQualquer);
+objetoRetornado.order('coxinha');
+objetoRetornado.order('agua');
+objetoRetornado.order('coxinha');
+
+console.log(objetoRetornado.pay());
 
 module.exports = createMenu;
