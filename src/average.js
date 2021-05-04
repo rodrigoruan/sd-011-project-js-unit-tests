@@ -13,12 +13,12 @@
 */
 
 const average = (array) => {
-  if (array === null || isNaN(array.NaN)) {
+  if (array === null || Number.isNaN(array.NaN)) {
     return undefined;    
   }
   let sum = 0;
-  for (let index = 0; index < array.length; index +=1) {
-    if (typeof(array[index]) !== 'number') {
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
       return undefined;
     }
       sum += array[index];
@@ -30,3 +30,4 @@ const average = (array) => {
 module.exports = average;
 
 // Referencia para erro: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/NaN
+// https://github.com/airbnb/javascript#standard-library--isnan
