@@ -33,7 +33,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    assert.strictEqual(typeof(productDetails('Alcool gel', 'Mascara')), 'Object')
+    assert.strict(typeof(productDetails('Alcool gel', 'Mascara')), 'Object')
 
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(productDetails('alcool gel', 'Mascara').length, 2)
