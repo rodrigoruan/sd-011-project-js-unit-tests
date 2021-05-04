@@ -15,19 +15,15 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
-const phrase = {
-  nome: 'Tunico!',
-  age: 30,
-  job: 'Trybe',
-  vamoqvamo: '#VQV!',
-  call: (callback) => callback(), 
-};
 
 const vqv = (nome, idade) => {
-  console.log(`Oi, meu nome é ${phrase.nome}
-  /n Tenho ${phrase.age} anos, 
-  /n trabalho na ${phrase.job} e mando muito em programação! 
-  /n ${phrase.vamoqvamo}`);
+  if (nome === undefined || idade === undefined) {
+    return undefined;
+  }
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
 };
 
 module.exports = vqv;
