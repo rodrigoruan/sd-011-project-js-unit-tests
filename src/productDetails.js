@@ -1,5 +1,4 @@
-/*
-  Dadas duas strings que representam nomes de produtos,
+/*  Dadas duas strings que representam nomes de produtos,
   retorne um array contendo dois objetos com os detalhes dos respectivos produtos.
 
   Parâmetros:
@@ -42,4 +41,3 @@ const productDetails = (firstProduct, secondProduct) => [
 console.log((Object.values(productDetails('alcool', 'mascara'))[0].details.productId).slice(-3));
 
 module.exports = productDetails;
-

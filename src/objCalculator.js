@@ -21,5 +21,4 @@
 
 const calculator = {};
 
-const add
 module.exports = calculator;
