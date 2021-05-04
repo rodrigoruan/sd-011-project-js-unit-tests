@@ -84,17 +84,16 @@ const orderFromMenu = (request) => restaurant.consumption.push(request);
 
 const payment = (myMenu) => {
   let total = 0;
-  const consumption = Object.values(restaurant.consumption);
-  const { food, drink } = myMenu;
+  const consumption = Object.values(restaurant.consumption); // array com intens pedidos
 
   for (let index = 0; index < consumption.length; index += 1) {
-    if (food[consumption[index]]) {
-      total += food[consumption[index]];
+    if (myMenu.food[consumption[index]]) { // se item referente a tal index existe no obj food do obj myMenu
+      total += myMenu.food[consumption[index]]; // adiciona o value(preco) referente a key(item do menu) ao total
     } else {
-      total += drink[consumption[index]];
+      total += myMenu.drink[consumption[index]];
     }
   }
-  const ratio = 1.1;
+  const ratio = 1.1; // 10%
   return total * ratio;
 };
 
