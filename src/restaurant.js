@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this
 function orderConsumption(string) {
   this.consumption.push(string);
 }
