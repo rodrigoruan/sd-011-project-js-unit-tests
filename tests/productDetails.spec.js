@@ -39,7 +39,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(productDetails('alcool gel', 'Mascara').length, 2)
 
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.strictEqual(typeof(productDetails('Alcool gel', 'Mascara')), 'Object')
+    assert.strict(typeof(productDetails('Alcool gel', 'Mascara')), 'Object')
     
     // Teste que os dois objetos são diferentes entre si.
     let produto = productDetails('Alcool gel', 'Mascara')
