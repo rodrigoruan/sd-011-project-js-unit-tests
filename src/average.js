@@ -22,7 +22,8 @@ const average = (array) => {
     sum += num;
   }
   const media = sum / array.length;
-  return media;
+  return Math.ceil(media);
 };
 
+console.log(average([1, 1]));
 module.exports = average;
