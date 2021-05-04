@@ -82,7 +82,7 @@
 const createMenu = (myMenu) => {
   const menu = {
     fetchMenu: () => myMenu,
-    order: (request) => ,
+    order: (request) => menu.consumption.push(request),
     consumption: [],
     pay: () => {
       let sum = 0;
