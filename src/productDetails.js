@@ -40,13 +40,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-assert.strictEqual(typeof productDetails('firstProduct', 'secondProduct'), 'object');
-assert.strictEqual(productDetails('firstProduct', 'secondProduct').length, 2);
-assert.strictEqual(typeof (productDetails('firstProduct', 'secondProduct')[0]), 'object');
-assert.strictEqual(typeof (productDetails('firstProduct', 'secondProduct')[1]), 'object');
-assert.notDeepStrictEqual(productDetails('firstProduct', 'secondProduct')[0],
-productDetails('firstProduct', 'secondProduct')[1]);
-assert.strictEqual(productDetails('alcool', 'mascara')[0].details.productId.slice(-3), '123');
-assert.strictEqual(productDetails('alcool', 'mascara')[1].details.productId.slice(-3), '123');
-
 module.exports = productDetails;
