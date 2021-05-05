@@ -1,5 +1,3 @@
-const numbers = require("./numbers");
-
 /*
   A função average recebe um array (tamanho variável) e retorna a média dos valores recebidos.
   Caso a função receba algum valor não númerico ou um array vazio,
@@ -16,8 +14,8 @@ const numbers = require("./numbers");
 
 const average = (array) => {
   let total = 0;
-  let soma = Math.round(total / array.length);;
-  for (let i = 0; i < array.length; i++) {
+  let soma = Math.round(total / array.length);
+  for (let i = 0; i < array.length; i += 1) {
     total += array[i];
   }
   if (array === null || array !== Number) {
