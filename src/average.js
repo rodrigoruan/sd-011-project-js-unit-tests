@@ -39,22 +39,4 @@ const average = (valor) => {
     return undefined;
 };
 
-module.exports = average;
-
-  let accumulator = 0;
-
-  for (let index = 0; index < number.length; index +=1) {
-    accumulator += number[index];
-  }
-
-  return accumulator/number.length;
-
-};
-// add your implementation here
-
-//assert.strictEqual(typeof(average), 'function');
-//assert.strictEqual(average(1), 1);
-console.log (average([4,4]));
-
-
-module.exports = average;
+module.exports = average; 
