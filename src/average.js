@@ -13,15 +13,16 @@ const numbers = require("./numbers");
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+
 const average = (array) => {
-  let total = 0
-  let soma = 0
-  for(let i = 0; i < array.length; i++) {
-    total += array[i] 
+  let total = 0;
+  let soma = Math.round(total / array.length);;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i];
   }
-  if(array === null || array !== Number) {
-    return undefined
+  if (array === null || array !== Number) {
+    return undefined;
   }
-  return soma = Math.round(total / array.length)
+  return soma;
 };
 module.exports = average;
