@@ -81,36 +81,24 @@
 
 const createMenu = (obj) => { 
   const myObj = {
-  fetchMenu: () => obj,
-  consumption: [],
-  order(item) {this.consumption.push(item)},
-  pay() {
-    let sum = 0;
-
-    this.consumption.forEach((item) => {
-
-      if (obj.drinks[item]) {
-        sum += obj.drinks[item];
-      } else {
-        sum += obj.food[item];
-      }
-    })
-    console.log("A soma é: ", sum * 1.1);
-  }
+    fetchMenu: () => obj,
+    consumption: [],
+    order: (item) => { myObj.consumption.push(item); },
+    pay() {
+    let sum = 0; 
+    myObj.consumption.forEach((item) => {
+      if (myObj.fetchMenu().drink[item]) {
+        sum += myObj.fetchMenu().drink[item];
+      } 
+      if (myObj.fetchMenu().food[item]) {
+         sum += myObj.fetchMenu().food[item];
+        }
+    });
+   
+    return ((sum * 1.1).toFixed(2));
+  },
   };
   return myObj;
 };
-
-const objTest = createMenu({
-    food: {'coxinha': 3.90, 'sanduiche': 9.90},
-    drinks: {'agua': 3.90, 'cerveja': 6.90}
-  });
-
-objTest.order('cerveja');
-objTest.order('sanduiche');
-objTest.order('coxinha');
-objTest.pay();
-
-// console.log(objTest.consumption, 'ignored');
 
 module.exports = createMenu;
