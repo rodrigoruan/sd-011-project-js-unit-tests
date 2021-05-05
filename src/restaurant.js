@@ -81,7 +81,7 @@
 
 function cardConsumption(string) {
   this.consumption.push(string);
-};
+}
 
 function bill() {
   let payBill = 0;
@@ -91,7 +91,7 @@ function bill() {
     payBill += productPrice;
   }
   payBill = Math.round(payBill * 110) / 100;
-  return payBill
+  return payBill;
 }
 
 const createMenu = (object) => ({
