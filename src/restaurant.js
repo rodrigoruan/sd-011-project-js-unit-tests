@@ -10,8 +10,8 @@ const createMenu = (menu) => {
       total += priceItem;
     });
     return Math.round(total * 1.10);
-  }
-}
+  },
+};
 return restaurant;
 };
 
