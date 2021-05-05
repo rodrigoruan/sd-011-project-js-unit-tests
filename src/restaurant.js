@@ -15,7 +15,7 @@
   Parâmetros:
   - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
   Comportamento:
-
+  
   const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
 
   meuRestaurante.fetchMenu() // Retorno: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
@@ -79,6 +79,38 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (obj) => { 
+  const myObj = {
+  fetchMenu: () => obj,
+  consumption: [],
+  order(item) {this.consumption.push(item)},
+  pay() {
+    let sum = 0;
+
+    this.consumption.forEach((item) => {
+
+      if (obj.drinks[item]) {
+        sum += obj.drinks[item];
+      } else {
+        sum += obj.food[item];
+      }
+    })
+    console.log("A soma é: ", sum * 1.1);
+  }
+  };
+  return myObj;
+};
+
+const objTest = createMenu({
+    food: {'coxinha': 3.90, 'sanduiche': 9.90},
+    drinks: {'agua': 3.90, 'cerveja': 6.90}
+  });
+
+objTest.order('cerveja');
+objTest.order('sanduiche');
+objTest.order('coxinha');
+objTest.pay();
+
+// console.log(objTest.consumption, 'ignored');
 
 module.exports = createMenu;
