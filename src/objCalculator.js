@@ -28,6 +28,4 @@ const calculator = {
   sub: (num1, num2) => num1 - num2,
 };
 
-console.log(calculator.add(2, 4))
-
 module.exports = calculator;
