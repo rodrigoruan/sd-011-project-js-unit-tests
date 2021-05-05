@@ -11,7 +11,25 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const assert = require('assert');
 
-const average = () => {}; //Adicionando commit
+const average = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
+  var summation = 0;
+  for (let number of array) {
+    if (typeof (number) !== 'number') {
+      return ('undefined');
+    }
+    summation += number;
+  }
+  return Math.round(summation / array.length);
+};
+
+assert.strictEqual(average([1, 2, 3]), 2);
+assert.strictEqual(average([1, 2, 3, 4, 5]), 3);
+assert.strictEqual(average([]), undefined);
+assert.strictEqual(average([1, 0.3]), 1);
 
 module.exports = average;
