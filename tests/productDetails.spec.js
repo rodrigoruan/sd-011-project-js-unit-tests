@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { copyFileSync } = require('fs');
 const productDetails = require('../src/productDetails');
 
 /*
@@ -30,12 +31,25 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste que o retorno da função é um array.
-    // Teste que o array retornado pela função contém dois itens dentro.
-    // Teste que os dois itens dentro do array retornado pela função são objetos.
-    // Teste que os dois objetos são diferentes entre si.
-    // (Difícil) Teste que os dois productIds terminam com 123.
+//     // assert.fail();
+//     // ESCREVA SEUS TESTES ABAIXO:
+//     // Teste que o retorno da função é um array.
+      assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')), true);
+
+//     // Teste que o array retornado pela função contém dois itens dentro.
+      assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
+
+//     // Teste que os dois itens dentro do array retornado pela função são objetos.
+        for(let object of productDetails('Alcool gel', 'Máscara')){
+          assert.strictEqual(typeof(object), 'object');
+        }
+
+//     // Teste que os dois objetos são diferentes entre si.
+        assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0],productDetails('Alcool gel', 'Máscara')[1]);
+
+//     // (Difícil) Teste que os dois productIds terminam com 123.
+        for(let objectProduct of productDetails('Alcool gel', 'Máscara')){
+          assert.strictEqual(objectProduct.details.productId.endsWith('123'), true);
+        }
   });
 });
