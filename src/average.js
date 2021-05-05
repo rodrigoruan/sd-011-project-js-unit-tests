@@ -21,11 +21,11 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     sum += array[index];
     if (typeof array[index] !== 'number') {
-      reuturn undefined
+      return undefined;
     }
   }
   media = soma / array.length;
-  return Math.round(media)
+  return Math.round(media);
 };
 
 module.exports = average;
