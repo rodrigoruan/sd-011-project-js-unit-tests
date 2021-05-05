@@ -13,7 +13,7 @@
 */
 
 const average = (array) => {
-  if (array === null || Number.isNaN(array.NaN)) {
+  if (array.length === 0) { 
     return undefined;    
   }
   let sum = 0;
