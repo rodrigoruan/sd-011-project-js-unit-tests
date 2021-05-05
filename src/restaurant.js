@@ -85,6 +85,10 @@ const createMenu = (menu) => ({
   order(...items) {
     items.forEach((item) => this.consumption.push(item));
   },
+  pay() {
+    return this.consumption.reduce((total, item) =>
+    total + (Object.keys(menu.food).includes(item) ? menu.food[item] : menu.drink[item]), 0);
+  },
 });
 
 module.exports = createMenu;
