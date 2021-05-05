@@ -86,8 +86,9 @@ const createMenu = (menu) => ({
     items.forEach((item) => this.consumption.push(item));
   },
   pay() {
-    return this.consumption.reduce((total, item) =>
-    total + (Object.keys(menu.food).includes(item) ? menu.food[item] : menu.drink[item]), 0);
+    return parseFloat((this.consumption.reduce((total, item) => total
+    + (Object.keys(menu.food).includes(item) ? menu.food[item]
+    : menu.drink[item]), 0) * 1.1).toFixed(2), 10);
   },
 });
 
