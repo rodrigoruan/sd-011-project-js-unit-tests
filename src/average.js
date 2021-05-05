@@ -20,11 +20,11 @@ const average = (numbers) => {
   }
 
   for (let index = 0; index < numbers.length; index += 1) {
-    if (typeof numbers[index] === "string") {
+    if (typeof numbers[index] === 'string') {
       return undefined;
-    } else {
-      sum = sum + numbers[index];
     }
+
+    sum += numbers[index];
   }
   return Math.round(sum / numbers.length);
 };
