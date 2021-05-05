@@ -24,7 +24,7 @@ const average = (array) => {
       return undefined;
     }
   }
-  media = soma / array.length;
+  media = sum / array.length;
   return Math.round(media);
 };
 
