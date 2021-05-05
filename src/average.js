@@ -18,7 +18,9 @@ const average = (array) => {
     answer = undefined;
   } else {
     let sum = 0;
-    array.forEach((number) => sum += number);
+    array.forEach((number) => {
+      sum += number;
+    });
     answer = Math.round(sum / array.length);
   }
   return answer;
