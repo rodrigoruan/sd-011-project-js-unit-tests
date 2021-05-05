@@ -1,0 +1,13 @@
+{
+    "launch": {
+
+        "configurations": [],
+        "compounds": [],
+        "editor.fontFamily": "Fira Code",
+        "editor.fontSize": 12,
+        "editor.fontLigatures": true,
+    },
+    "json.schemas": [
+    
+    ]
+}
