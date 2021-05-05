@@ -82,8 +82,8 @@
 const createMenu = (menu) => ({
   fetchMenu: () => menu,
   consumption: [],
-  order(item) {
-    this.consumption.push(item);
+  order(...items) {
+    items.forEach((item) => this.consumption.push(item));
   },
 });
 
