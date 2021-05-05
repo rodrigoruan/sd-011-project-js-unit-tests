@@ -79,6 +79,31 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+// Reference:
+// this: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+// parseFloat: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
+
+// createMenu function
+const createMenu = (obj) => ({
+  fetchMenu: () => obj, // arrow function to recieve object in parameter
+  consumption: [], // array to collect client's consumption
+  order(x) { this.consumption.push(x); }, // function to add client's consumption into the array
+
+  // function that recieves the consumption and calculate the payment
+  pay() {
+    let payment = 0;
+    const menu = this.fetchMenu(); // recieves the object above
+    // array iteration to add consumption into the differents keys of the object
+    for (let index of this.consumption) {
+      if (menu.food[index]) {
+        payment += menu.food[index];
+      } else {
+        payment += menu.drink[index];
+      }
+    }
+    // return payment
+    return parseFloat(payment);
+  },
+});
 
 module.exports = createMenu;

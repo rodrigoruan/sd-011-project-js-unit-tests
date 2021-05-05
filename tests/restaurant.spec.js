@@ -48,7 +48,6 @@ const createMenu = require('../src/restaurant');
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
@@ -90,7 +89,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("sopa");
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-    // ```
+    // ```    
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
@@ -110,5 +109,49 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+
+    // Test 1
+    const objetoQualquer = {
+      food: { coxinha: 3.5, sopa: 9.9, sashimi: 6.4, },
+      drink: { água: 4, cerveja: 6.9, }
+    };
+    
+    // Test 2
+    const objTest = createMenu(objetoQualquer);
+    assert.strictEqual(typeof objTest.fetchMenu, 'function');
+
+    // Test 3
+    const keyTest = createMenu({food: {}, drink: {}});
+    assert.deepStrictEqual(keyTest.fetchMenu(), {food: {}, drink: {}});
+
+    // Test 4
+    const consumptionTest = createMenu(objetoQualquer);
+    assert.deepStrictEqual(consumptionTest.fetchMenu(), objetoQualquer);
+    assert.deepStrictEqual(consumptionTest.consumption, []);
+
+    // Test 5
+    const orderTest = createMenu(objetoQualquer);
+    orderTest.order('coxinha');
+    assert.deepStrictEqual(orderTest.consumption, ['coxinha']);
+
+    // Test 6
+    const orderTest2 = createMenu(objetoQualquer);
+    orderTest2.order('coxinha');
+    orderTest2.order('água');
+    orderTest2.order('sopa');
+    orderTest2.order('sashimi');
+    assert.deepStrictEqual(orderTest2.consumption, ['coxinha', 'água', 'sopa', 'sashimi']);
+
+    // Test 7
+    orderTest2.order('coxinha');
+    assert.deepStrictEqual(orderTest2.consumption, ['coxinha', 'água', 'sopa', 'sashimi', 'coxinha']);
+
+    // Test 8
+    const payTest = createMenu(objetoQualquer);
+    payTest.order('coxinha');
+    payTest.order('água');
+    payTest.order('coxinha');
+
+    assert.strictEqual(payTest.pay(), 11);
   });
 });
