@@ -32,7 +32,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    assert.deepStrictEqual(typeof(productDetails()), 'object');
+    assert.deepStrictEqual(Array.isArray(productDetails()), true);
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.deepStrictEqual(productDetails().length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
@@ -42,6 +42,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.notDeepStrictEqual(Object.values(productDetails('A', 'B')[0]), Object.values(productDetails('A', 'B')[1]));
     // (Difícil) Teste que os dois productIds terminam com 123.
     const func = productDetails('A', 'B');
-    assert.strictEqual(func[0].details.productId.substr(1,4), func[1].details.productId.substr(1,4));
+    const lengthA = func[0].details.productId.length;
+    const lengthB = func[1].details.productId.length;
+    assert.strictEqual(func[0].details.productId.substr((lengthA - 3),lengthB), func[1].details.productId.substr((lengthB - 3),lengthB));
   });
 });
