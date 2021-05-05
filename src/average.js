@@ -13,17 +13,12 @@
 */
 
 const average = (array) => {
-  let nota = 0; 
-  if (array.lenght === 0) {
+  if (array.length !== 0 && !array.some((i) => !Number.isFinite(i))) {
+    let sum = array.reduce((a, b) => a + b, 0);
+    const division = Math.round(sum / array.length);
+    return division;
+  }
   return undefined;
-  }
-  for (const index of array) {
-    if (array !== 'number') {
-    return undefined;
-  }
-  nota += index;
-}
-  return Math.round(nota / array.lenght);
 };
 
 module.exports = average;
