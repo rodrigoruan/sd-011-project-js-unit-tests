@@ -32,9 +32,9 @@ const average = (valor) => {
   let resultado = 0;
   if (checarString(valor) === false && checarNulo(valor) === false) {
     for (let index = 0; index < valor.length; index += 1) {
-      result += valor[index];
+      resultado += valor[index];
     }
-    return Math.round(result/ valor.length);
+    return Math.round(resultado / valor.length);
   }
     return undefined;
 };
