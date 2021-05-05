@@ -18,11 +18,11 @@ const average = (arrayNumbers) => {
   if (arrayNumbers.lenght === 0) {
   return undefined;
   }
-  for (const index of arrayNumbers) {
+  for (let index = 0; index < arrayNumbers.lenght; index += 1) {
+    num += arrayNumbers[index];
     if (arrayNumbers !== 'number') {
     return undefined;
   }
-  num += index;
 }
   media = num / arrayNumbers.lenght;
   return Math.round(media);
