@@ -106,13 +106,13 @@ function payTotal(menu) {
 
 let menuFull = {};
 
-function orderFromMenu(order) {
-  menuFull.consumption.push(order);
+function orderFromMenu(item) {
+  menuFull.consumption.push(item);
 }
 
-const createMenu = (obj) => {
+const createMenu = (objeto) => {
   menuFull = {
-  fetchMenu: () => obj,
+  fetchMenu: () => objeto,
   consumption: [],
   order: orderFromMenu,
   pay: () => payTotal(menuFull),
