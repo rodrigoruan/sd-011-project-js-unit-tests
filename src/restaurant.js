@@ -112,7 +112,7 @@ const createMenu = (menu) => {
         soma += drinkConsumption(drinks, item);
       });
       return soma;
-    }
+    },
   };
   return restaurant;
 };
