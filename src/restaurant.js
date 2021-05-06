@@ -85,7 +85,6 @@ const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
 };
 
-
 // Lógica desenvolvida por Adriano Forcellini (https://github.com/tryber/sd-07-project-js-unit-tests/pull/148/files)
 const payFunction = (item) => {
   const sumFood = (restaurant.fetchMenu.food); // sumFood = objeto que é propriedade de myMenu (food: {})
@@ -106,7 +105,6 @@ function payFromMenu() {
 }
 //-------------------------------------------------------------------------------------------
 
-
 const createMenu = (myMenu) => {
   restaurant.fetchMenu = myMenu; // Adiciona a propriedade 'fetchMenu' ao objeto 'restaurant', e dá a ele o valor de 'myMenu' (https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Trabalhando_com_Objetos)
   restaurant.consumption = [];
@@ -114,6 +112,5 @@ const createMenu = (myMenu) => {
   restaurant.pay = payFromMenu;
   return restaurant;
 };
-
 
 module.exports = createMenu;
