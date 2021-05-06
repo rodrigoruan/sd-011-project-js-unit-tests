@@ -79,6 +79,24 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
+const foodConsumption = (menu, item) => {
+  const foodKeys = Object.keys(menu);
+  let soma = 0;
+  foodKeys.forEach((element) => {
+    if (item === element) soma += menu[element];
+  });
+  return soma;
+};
+  
+const drinkConsumption = (menu, item) => {
+  const drinkKeys = Object.keys(menu);
+  let soma = 0;
+  drinkKeys.forEach((element) => {
+    if (item === element) soma += menu[element];
+  });
+  return soma;
+};
+
 const createMenu = (menu) => {
   const restaurant = { 
     fetchMenu: () => menu,
@@ -88,16 +106,10 @@ const createMenu = (menu) => {
       let soma = 0;
       const items = restaurant.consumption;
       const foods = restaurant.fetchMenu().food;
-      const foodKeys = Object.keys(restaurant.fetchMenu().food);
       const drinks = restaurant.fetchMenu().drink;
-      const drinkKeys = Object.keys(restaurant.fetchMenu().drink);
       items.forEach((item) => {
-        foodKeys.forEach((element) => {
-          if (item === element) soma += foods[element];
-        });
-        drinkKeys.forEach((element) => {
-          if (item === element) soma += drinks[element];
-        });
+        soma += foodConsumption(foods, item);
+        soma += drinkConsumption(drinks, item);
       });
       return soma;
     }
@@ -106,23 +118,3 @@ const createMenu = (menu) => {
 };
 
 module.exports = createMenu;
-
-
-const objetoQualquer = {
-  food: {
-    peixe: 10,
-    abacate: 15,
-    coxinha: 5
-  }, 
-  drink: {
-    coca: 15,
-    cerveja: 5,
-    agua: 5
-  }
-}
-
-const objetoRetornado = createMenu(objetoQualquer);
-    objetoRetornado.order('coxinha');
-    objetoRetornado.order('agua');
-    objetoRetornado.order('coxinha');
-    objetoRetornado.pay();
