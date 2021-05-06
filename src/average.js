@@ -12,25 +12,10 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-function checkString(route) {
-  let found = false;
-      for (let index = 0; index < route.length; index += 1) {
-        if (typeof (route[index]) !== 'number') {
-          found = true;
-        }
-      }
-  return found;
-}
-function checkNull(route) {
-  if (route[0] === undefined) {
-    return true;
-  }
-  return false;
-}
-
 const average = (valu) => {
   let result = 0;
-  if (checkString(valu) === false && checkNull(valu) === false) {
+  const checkString = valu.some((number) => typeof (number) !== 'number');
+  if (checkString === false && valu[0] !== undefined) {
     for (let index = 0; index < valu.length; index += 1) {
       result += valu[index];
     }
