@@ -31,7 +31,7 @@ const productDetails = require('../src/productDetails');
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     //Source: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
-    assert.deepStrictEqual(Array.isArray(productDetails(firstProduct, secondProduct)), true);
+    assert.deepStrictEqual(Array.isArray(productDetails('firstProduct', 'secondProduct')), true);
     assert.deepStrictEqual(productDetails('firstProduct', 'secondProduct').length, 2);
     //Source: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/typeof
     assert.strictEqual(typeof productDetails('firstProduct', 'secondProduct')[0] && typeof productDetails('firstProduct', 'secondProduct')[1], 'object');
