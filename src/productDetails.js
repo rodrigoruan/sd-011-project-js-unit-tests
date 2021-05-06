@@ -39,4 +39,7 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+const a = productDetails('produto1', 'produto2');
+console.log(productDetails('produto1', 'produto2').every(((objeto) => typeof objeto === 'object')));
+
 module.exports = productDetails;
