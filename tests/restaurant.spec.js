@@ -49,7 +49,7 @@ const createMenu = require('../src/restaurant');
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    const lis = { food: {}, drink: {} };
+    const list = { food: {}, drink: {} };
     let objetoRetornado = createMenu(list);
 
     assert.strictEqual(typeof objetoRetornado, 'object');
