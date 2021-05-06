@@ -1,6 +1,6 @@
 const { AssertionError } = require('assert');
 const assert = require('assert');
-const { create } = require('eslint/lib/rules/*');
+// const { create } = require('eslint/lib/rules/*');
 const createMenu = require('../src/restaurant');
  
 /*
@@ -69,6 +69,18 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
+    const objetoQualquer = {
+      food: {
+        peixe: 10,
+        abacate: 15,
+        coxinha: 5
+      }, 
+      drink: {
+        coca: 15,
+        cerveja: 5,
+        agua: 5
+      }
+    }
     objetoRetornado = createMenu(objetoQualquer);
     objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
@@ -115,7 +127,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');
-    objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    objetoRetornado.comsuption; // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'agua', 'coxinha']);
 
@@ -127,9 +139,9 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');
-    objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
+    objetoRetornado.pay(); // Retorno: somaDosPreçosDosPedidos
     // ```
-    assert.deepStrictEqual(objetoRetornado.pay(), somaDosPreçosDosPedidos);
+    assert.deepStrictEqual(objetoRetornado.pay(), 15);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
