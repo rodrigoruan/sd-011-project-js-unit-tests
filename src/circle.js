@@ -27,7 +27,4 @@ const circle = (radius) => {
     circumference: 2 * PI * radius,
   };
 };
-
-const assert = require('assert');
-assert.deepStrictEqual(parseFloat(circle(3).area), 28.26)
 module.exports = circle;
