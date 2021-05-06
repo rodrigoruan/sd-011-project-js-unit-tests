@@ -120,21 +120,18 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('coxinha');
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
 
-    //Test 6
     objetoRetornado = createMenu(menuList);
     objetoRetornado.order('água');
     objetoRetornado.order('sopa');
     objetoRetornado.order('sashimi');
     assert.deepStrictEqual(objetoRetornado.consumption, ['água', 'sopa', 'sashimi']);
     
-    //Test 7
     objetoRetornado = createMenu(menuList);
     objetoRetornado.order('coxinha');
     objetoRetornado.order('água');
     objetoRetornado.order('coxinha');
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'água', 'coxinha']);
 
-    //Test 8
     const menuList2 = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
     objetoRetornado = createMenu(menuList2);
     objetoRetornado.order('coxinha');
