@@ -27,9 +27,5 @@ const circle = (radius) => {
     circumference: 2 * PI * radius,
   };
 };
-const assert = require('assert');
-// console.log(circle(3))
-// console.log(typeof (circle(3).area))
-assert.deepStrictEqual(Number(circle(3).area.toFixed(2)), 28.26)
 
 module.exports = circle;
