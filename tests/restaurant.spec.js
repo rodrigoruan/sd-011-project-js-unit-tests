@@ -109,8 +109,8 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
-    const menuList = { food: {}, drink: {} };
-    let objetoRetornado = createMenu(menulist);
+    const list = { food: {}, drink: {} };
+    let objetoRetornado = createMenu(list);
 
     assert.strictEqual(typeof objetoRetornado, 'object');
     assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), ['food', 'drink']);
@@ -120,20 +120,20 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('coxinha');
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
 
-    objetoRetornado = createMenu(menuList);
+    objetoRetornado = createMenu(list);
     objetoRetornado.order('água');
     objetoRetornado.order('sopa');
     objetoRetornado.order('sashimi');
     assert.deepStrictEqual(objetoRetornado.consumption, ['água', 'sopa', 'sashimi']);
-    
-    objetoRetornado = createMenu(menuList);
+
+    objetoRetornado = createMenu(list);
     objetoRetornado.order('coxinha');
     objetoRetornado.order('água');
     objetoRetornado.order('coxinha');
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'água', 'coxinha']);
 
-    const menuList2 = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
-    objetoRetornado = createMenu(menuList2);
+    const list2 = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
+    objetoRetornado = createMenu(list2);
     objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');

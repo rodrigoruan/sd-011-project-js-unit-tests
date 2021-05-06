@@ -78,10 +78,6 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-// Material consultado extra:
-// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this
-
 function checkKey(value, key) {
   for (let index = 0; index < key.length; index += 1) {
     if (value === key[0][index]) {
@@ -92,32 +88,34 @@ function checkKey(value, key) {
 }
 
 function payTotal(menu) {
-  let billTotal = 0;
+  let priceTotal = 0;
   const food = Object.entries(menu.fetchMenu().food);
   const drink = Object.entries(menu.fetchMenu().drink);
 
   for (let value of menu.consumption) {
-    billTotal += checkKey(value, food);
-    billTotal += checkKey(value, drink);
+    priceTotal += checkKey(value, food);
+    priceTotal += checkKey(value, drink);
   }
-  billTotal += ((billTotal * 10) / 100);
-  return billTotal;
+
+  priceTotal += ((priceTotal * 10) / 100);
+  return priceTotal;
 }
 
-let menuFull = {};
+let menuComplete = {};
 
 function orderFromMenu(item) {
-  menuFull.consumption.push(item);
+  menuComplete.consumption.push(item);
 }
 
 const createMenu = (objeto) => {
-  menuFull = {
+  menuComplete = {
   fetchMenu: () => objeto,
   consumption: [],
   order: orderFromMenu,
-  pay: () => payTotal(menuFull),
+  pay: () => payTotal(menuComplete),
   };
-  return menuFull;
+
+  return menuComplete;
 };
 
 module.exports = createMenu;
