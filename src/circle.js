@@ -28,8 +28,4 @@ const circle = (radius) => {
   };
 };
 
-const assert = require('assert');
-assert.deepStrictEqual(circle(3).area, 28.26)
-
-
 module.exports = circle;
