@@ -93,8 +93,8 @@ function paymentFinal() {
     let currentOrderPrice = menu.drink[index] ? menu.drink[index] : menu.food[index];
     payFinal += currentOrderPrice;
   }
-  payFinal = Math.round(payout * 110) / 100;
-  return payout;
+  payFinal = Math.round(payFinal * 110) / 100;
+  return payFinal;
 }
 
 const createMenu = (obj) => ({
