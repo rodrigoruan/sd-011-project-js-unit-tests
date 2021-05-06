@@ -82,26 +82,42 @@
 // Material consultado extra:
 // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this
 
-function orderRequest(str) {
-  this.consumption.push(str);
-}
-
-function paymentFinal() {
-  let payFinal = 0;
-  const menu = this.fetchMenu();
-  for (let index of this.consumption) {
-    let currentOrderPrice = menu.drink[index] ? menu.drink[index] : menu.food[index];
-    payFinal += currentOrderPrice;
+function checkKey(value, key) {
+  for (let index = 0; index < key.length; index += 1) {
+    if (value === key[0][index]) {
+      return key[index][1];
+    }
   }
-  payFinal = Math.round(payFinal * 110) / 100;
-  return payFinal;
+  return 0;
 }
 
-const createMenu = (obj) => ({
+function payTotal(menu) {
+  let billTotal = 0;
+  const food = Object.entries(menu.fetchMenu().food);
+  const drink = Object.entries(menu.fetchMenu().drink);
+
+  for (let value of menu.consumption) {
+    billTotal += checkKey(value, food);
+    billTotal += checkKey(value, drink);
+  }
+  billTotal += ((billTotal * 10) / 100);
+  return billTotal;
+}
+
+let menuFull = {};
+
+function orderFromMenu(order) {
+  menuFull.consumption.push(order);
+}
+
+const createMenu = (obj) => {
+  menuFull = {
   fetchMenu: () => obj,
   consumption: [],
-  order: orderRequest,
-  pay: paymentFinal,
-});
+  order: orderFromMenu,
+  pay: () => payTotal(menuFull),
+  };
+  return menuFull;
+};
 
 module.exports = createMenu;
