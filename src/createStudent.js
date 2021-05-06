@@ -20,7 +20,7 @@ const createStudent = (string) => {
   const object = {
     name: string,
     feedback,
-  }
+  };
   return object;
 };
 
