@@ -109,7 +109,7 @@ function orderFromMenu(item) {
   menuComplete.consumption.push(item);
 }
 
-const createMenu = (objeto) => {
+createMenu = (objeto) => {
   menuComplete = {
   fetchMenu: () => objeto,
   consumption: [],
