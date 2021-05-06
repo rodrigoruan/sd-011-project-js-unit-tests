@@ -110,7 +110,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
     const menuList = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
-    let objetoRetornado = createMenu(list);
+    let objetoRetornado = createMenu(menulist);
 
     assert.strictEqual(typeof objetoRetornado, 'object');
     assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), ['food', 'drink']);
