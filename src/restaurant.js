@@ -92,4 +92,4 @@ const orderFromMenu = (request) => restaurant.consumption.push(request);
 // const objetoRetornado = createMenu();
 // objetoRetornado.order('coxinha')
 
-module.exports = createMenu;
+// module.exports = createMenu;
