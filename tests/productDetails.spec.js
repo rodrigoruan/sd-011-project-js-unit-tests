@@ -36,9 +36,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.deepStrictEqual(productDetails('first', 'second').length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.deepStrictEqual(typeof productDetails('first', 'second'), 'object');
+    assert.strictEqual(typeof productDetails('first', 'second')[0] && typeof productDetails('first', 'second')[1], 'object');
     // Teste que os dois objetos são diferentes entre si.
-    assert.notDeepStrictEqual(productDetails('first', 'second'), 'Not Equal');
+    assert.notStrictEqual(productDetails('first', 'second')[0], productDetails('first', 'second')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123. https://www.w3schools.com/jsref/jsref_endswith.asp
     assert.strictEqual(productDetails('first', 'second')[0].details.productId.endsWith('123') &&
     productDetails('fist', 'second')[1].details.productId.endsWith('123'), true);
