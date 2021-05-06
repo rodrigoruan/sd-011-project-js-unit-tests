@@ -54,19 +54,13 @@
 // somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o //// objeto da chave `drink`.
 
 function soma(menu, consumidos) {
-  const array1 = Object.keys(menu.food);
-  const array2 = Object.keys(menu.drink);
   let acumula = 0;
-  for (let a = 0; a <= consumidos.length - 1; a += 1) {
-    for (let i = 0; i <= array1.length - 1; i += 1) {
-      if (array1[i] === consumidos[a]) {
-        acumula += menu.food[array1[i]];
-      }
+  for (let i = 0; i <= consumidos.length - 1; i += 1) {
+    if (menu.food[consumidos[i]]) {
+      acumula += menu.food[consumidos[i]];
     }
-    for (let i = 0; i <= array2.length - 1; i += 1) {
-      if (array2[i] === consumidos[a]) {
-        acumula += menu.drink[array2[i]];
-      }
+    if (menu.drink[consumidos[i]]) {
+      acumula += menu.drink[consumidos[i]];
     }
   }
   return parseFloat((acumula * 1.1).toPrecision(4));
