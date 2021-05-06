@@ -23,8 +23,13 @@ const circle = (radius) => {
   if (!radius) { return undefined; }
   return {
     radius: Number(radius),
-    area: parseFloat((PI * radius * radius).toPrecision(5)),
+    area: (PI * radius * radius),
     circumference: 2 * PI * radius,
   };
 };
+const assert = require('assert');
+// console.log(circle(3))
+// console.log(typeof (circle(3).area))
+assert.deepStrictEqual(Number(circle(3).area.toFixed(2)), 28.26)
+
 module.exports = circle;
