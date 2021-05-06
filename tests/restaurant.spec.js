@@ -1,6 +1,6 @@
 const assert = require('assert');
 const createMenu = require('../src/restaurant');
- 
+
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
   - ler o menu cadastrado;
@@ -109,9 +109,51 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+
+    // Teste 1
     assert.deepStrictEqual(Object.keys(createMenu()).find(element => element === 'fetchMenu'), 'fetchMenu');
-    assert.deepStrictEqual(Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu()), [ 'food', 'drink' ]);
+    // Teste 2
+    assert.deepStrictEqual(Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu()), ['food', 'drink']);
+    // Teste 3
     assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} });
+    // Teste 4
     assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).consumption, []);
+    // Teste 5
+    let objetoRetornado = createMenu('random object');
+    objetoRetornado.order('coxinha');
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
+    // Teste 6
+    objetoRetornado = createMenu('random');
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("sopa");
+    objetoRetornado.order("sashimi");
+    assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa", "sashimi"]);
+    // Teste 7
+    objetoRetornado = createMenu('random');
+    objetoRetornado.order('coxinha');
+    objetoRetornado.order('agua');
+    objetoRetornado.order('coxinha');
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'agua', 'coxinha']);
+    // Teste 8
+    const myMenu = {
+      food: {
+        coxinha: 6,
+        lasanha: 12,
+      },
+
+      drink: {
+        coca: 5,
+        agua: 2,
+      },
+    };
+
+    objetoRetornado = createMenu(myMenu);
+    objetoRetornado.order('coxinha');
+    objetoRetornado.order('lasanha');
+    objetoRetornado.order('coca');
+    objetoRetornado.order('agua');
+
+    assert.strictEqual(objetoRetornado.pay(), 27.5);
   });
 });
