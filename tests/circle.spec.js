@@ -27,7 +27,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     assert.deepStrictEqual(typeof (circle(3)), 'object');
     assert.deepStrictEqual(circle(1), { radius: 1, area: 3.14, circumference: 6.28 })
-    // assert.deepStrictEqual(circle(7), { radius: 7, area: 153.86, circumference: 43.96 })
+    assert.deepStrictEqual(circle(7), { radius: 7, area: 153.86, circumference: 43.96 })
     assert.deepStrictEqual(circle(3), { radius: 3, area: 28.26, circumference: 18.84 })
     assert.deepStrictEqual(Object.keys(circle(3)).length, 3)
     assert.deepStrictEqual((circle()), undefined)
