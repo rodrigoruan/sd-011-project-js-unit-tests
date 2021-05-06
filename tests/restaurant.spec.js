@@ -53,7 +53,8 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     let objetoRetornado = createMenu(list);
 
     assert.strictEqual(typeof objetoRetornado, 'object');
-    assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu(), { food: {}, drink: {} }));
+    assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), ['food', 'drink']);
+    assert.deepStrictEqual(objetoRetornado.fetchMenu(), { food: {}, drink: {} });
     assert.deepStrictEqual(objetoRetornado.consumption, []);
 
     objetoRetornado.order('coxinha');
@@ -72,7 +73,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha', 'água', 'coxinha']);
 
     const list2 = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
-    objetoReotrnado = createMenu(list2);
+    objetoRetornado = createMenu(list2);
     objetoRetornado.order('coxinha');
     objetoRetornado.order('agua');
     objetoRetornado.order('coxinha');
