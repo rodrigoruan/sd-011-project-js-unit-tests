@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { create } = require('eslint/lib/rules/*');
 const createMenu = require('../src/restaurant');
  
 /*
@@ -61,7 +62,12 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
-    const keysTest2 = Object.keys(createMenu({ food: {}, drink: {} }));
+    const objetoQualquer = {
+      food: {},
+      drink {}
+    };
+    const objetoRetornado = createMenu(objetoQualquer);
+    const keysTest2 = Object.keys(objetoRetornado.fetchMenu());
     assert.deepStrictEqual(keysTest2, ['food', 'drink']);
 
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
@@ -69,6 +75,8 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
+    assert.deepStrictEqual(objetoQualquer, objetoRetornado.fetchMenu());
+
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
