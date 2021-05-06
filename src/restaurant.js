@@ -90,10 +90,10 @@ function getPrice(menu, item) {
 const createMenu = (menu) => ({
   fetchMenu: () => menu,
   consumption: [],
-  order: function(product) {
+  order(product) {
     this.consumption.push(product);
   },
-  pay: function() {
+  pay() {
     let totalPrice = 0.0;
     for (let item of this.consumption) {
       totalPrice += getPrice(this.fetchMenu(), item);
@@ -101,6 +101,5 @@ const createMenu = (menu) => ({
     return totalPrice;
   },
 });
-
 
 module.exports = createMenu;
