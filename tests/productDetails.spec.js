@@ -1,6 +1,3 @@
-/* eslint-disable max-len*/
-/* eslint-disable no-unused-vars */
-
 const assert = require('assert');
 const productDetails = require('../src/productDetails');
 
@@ -28,20 +25,25 @@ const productDetails = require('../src/productDetails');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('#productDetails', () => {
-  it('tests the function has the correct behaviour', () => {
+describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
+  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
+    // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
-    const product = productDetails('Alcool gel', 'Mascara');
-    let index = 0
+    const functionTest = productDetails('Alcool gel', 'Máscara');
     // Teste que o retorno da função é um array.
-    assert.deepStrictEqual(Array.isArray(product), true)
+    assert.ok(functionTest, typeof Array);
     // Teste que o array retornado pela função contém dois itens dentro.
-    assert.deepStrictEqual(product.length === 2, true)
+    assert.strictEqual(Object.keys(functionTest).length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.deepStrictEqual(typeof product[index], 'object');
+    assert.ok(Object.values(functionTest), typeof Object);
     // Teste que os dois objetos são diferentes entre si.
-    assert.deepStrictEqual(typeof product[0] !== product[1], true);
+    const object1 = Object.entries(functionTest[0]);
+    const object2 = Object.entries(functionTest[1]);
+    assert.notDeepStrictEqual(object1, object2);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(product[index].details.productId.endsWith('123'), true);
+    const end1 = functionTest[0].details.productId.endsWith('123');
+    const end2 = functionTest[1].details.productId.endsWith('123');
+    const concatEnds = end1 && end2;
+    assert.ok(concatEnds, true);
   });
 });
