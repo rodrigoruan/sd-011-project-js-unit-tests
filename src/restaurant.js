@@ -98,4 +98,18 @@ const createMenu = (menuObj) => ({
   },
 });
 
+createMenu({
+  food: {
+    coxinha: 3.90, 
+    sanduiche: 9.90,
+    sopa: 10.90,
+    sashimi: 20.90,
+  },
+  drinks: {
+    agua: 3.90, 
+    cerveja: 6.90,
+  },
+});
+
+console.log(createMenu())
 module.exports = createMenu;
