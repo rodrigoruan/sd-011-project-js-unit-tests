@@ -99,7 +99,7 @@ function paymentFinal() {
 
 const createMenu = (obj) => ({
   fetchMenu: () => obj,
-  consuption: [],
+  consumption: [],
   order: orderRequest,
   pay: paymentFinal,
 });
