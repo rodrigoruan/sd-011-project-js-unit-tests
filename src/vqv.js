@@ -21,7 +21,8 @@ const vqv = (nome, idade) => {
   if (nome === undefined || idade === undefined) {
     answer = undefined;
   } else {
-    answer = `Oi, meu nome é ${nome}!\nTenho ${idade} anos,\ntrabalho na Trybe e mando muito em programação!\n#VQV!`;
+    answer = `Oi, meu nome é ${nome}!\nTenho ${idade} anos,\n`;
+    answer = `${answer}trabalho na Trybe e mando muito em programação!\n#VQV!`;
   }
   return answer;
 };
