@@ -111,5 +111,4 @@ createMenu({
   },
 });
 
-console.log(createMenu())
 module.exports = createMenu;
