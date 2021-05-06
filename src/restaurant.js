@@ -83,11 +83,21 @@ const order = (string) => {
   createMenu().consupmtion.push(string);
 };
 
+const order = () => {
+  let somaDosPreçosDosPedidos = 0;
+  const foodValues = Object.values(fetchMenu().food);
+  const drinkValues = Object.values(fetchMenu().drink);
+  foodValues.forEach((element => somaDosPreçosDosPedidos += element);
+  drinkValues.forEach((element => somaDosPreçosDosPedidos += element);
+  return somaDosPreçosDosPedidos;
+};
+
 const createMenu = (object) => {
   return { 
     fetchMenu: () => object,
     consupmtion: [],
-    order 
+    order,
+    pay 
   };
 };
 
