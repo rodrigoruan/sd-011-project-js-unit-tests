@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
-const numbers = require('../src/numbers');
+const numbers = require('../src/numbers.js');
 
 /*
   A função numbers recebe um array (tamanho variável) e retorna true se todos os parâmetros forem do tipo 'number' e false caso contrário.
