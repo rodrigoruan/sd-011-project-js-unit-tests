@@ -79,7 +79,7 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const charge = (menu) => {
+const bead = (menu) => {
   let value = 0;
   const { food } = menu.fetchMenu();
   const { drinks } = menu.fetchMenu();
@@ -97,7 +97,7 @@ const createMenu = (object) => {
     fetchMenu: () => object,
     order: (string) => menu.consumption.push(string),
     consumption: [],
-    pay: () => charge(menu),
+    pay: () => bead(menu),
   };
   return menu;
 };
