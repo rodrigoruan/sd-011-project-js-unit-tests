@@ -48,12 +48,14 @@ const createMenu = require('../src/restaurant');
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
+    
+  
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
+    
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
     // ```
@@ -110,5 +112,46 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+
+    assert.strictEqual(typeof createMenu().fetchMenu, 'function');
+
+    let myMenu = { food: {}, drink: {} }
+    let restaurantInterface = createMenu(myMenu);
+    let fetchedMenu = restaurantInterface.fetchMenu();
+
+    assert.deepStrictEqual(Object.keys(fetchedMenu), ['food', 'drink']);
+    assert.strictEqual(fetchedMenu, myMenu);
+    assert.deepStrictEqual(restaurantInterface.consumption, []);
+
+    restaurantInterface.order('coxinha');
+    assert.strictEqual(restaurantInterface.consumption.includes('coxinha'), true);
+
+    restaurantInterface.order('coca');
+    restaurantInterface.order('brigadeiro');
+
+    assert.deepStrictEqual(restaurantInterface.consumption, ['coxinha', 'coca', 'brigadeiro']);
+
+    restaurantInterface.order('coca');
+
+    assert.deepStrictEqual(restaurantInterface.consumption, ['coxinha', 'coca', 'brigadeiro', 'coca']);
+
+    let functionalMenu = {
+      food: {
+        coxinha: 5.90,
+        brigadeiro: 2.50,
+      },
+
+      drink: {
+        coca: 3.95,
+      },
+    };
+
+    let workingInterface = createMenu(functionalMenu);
+    workingInterface.order('coxinha');
+    workingInterface.order('coca');
+    workingInterface.order('coxinha');
+    workingInterface.order('brigadeiro');
+
+    assert.strictEqual(workingInterface.pay(), 20.08);
   });
 });
