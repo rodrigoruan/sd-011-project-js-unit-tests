@@ -43,6 +43,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.notDeepStrictEqual(typeof (productDetails('Pão', 'Agua')[0]), { name: 'Pão',
       details: { productId: 'Pão' },
     });
-    assert.strictEqual(productDetails('Pão', 'Agua')[0].details.productId.substr(-3, 3), '123');
+    assert.strictEqual(productDetails('Pão', 'Agua')[0].details.productId.endsWith('123'));
+    assert.strictEqual(productDetails('Pão', 'Agua')[1].details.productId.endsWith('123'));
   });
 });
