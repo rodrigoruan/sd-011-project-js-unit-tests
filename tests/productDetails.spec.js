@@ -37,8 +37,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     // Teste que os dois objetos são diferentes entre si.
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(Array.isArray(productDetails('Pão', 'Agua')), true);
-    assert.strictEqual(productDetails('Pão', 'Agua').length, 2);
+    assert.strictEqual(Array.isArray(productDetails()), true);
+    assert.strictEqual(productDetails().length, 2);
     assert.deepStrictEqual(typeof (productDetails('Pão', 'Agua')[0]), 'object');
     assert.notDeepStrictEqual(typeof (productDetails('Pão', 'Agua')[0]), { name: 'Pão',
       details: { productId: 'Pão' },
