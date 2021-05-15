@@ -39,7 +39,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.deepStrictEqual(Array.isArray(productDetails('Pão', 'Agua')), true);
     assert.strictEqual(productDetails('Pão', 'Agua').length, 2);
-    assert.deepStrictEqual(typeof (productDetails('Pão', 'Agua')));
+    assert.deepStrictEqual(typeof (productDetails('Pão', 'Agua')[0]), 'object');
     assert.notDeepStrictEqual(typeof (productDetails('Pão', 'Agua')[0]), { name: 'Pão',
       details: { productId: 'Pão' },
     });
