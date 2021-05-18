@@ -21,7 +21,7 @@ const average = () => {
   }
   return Math.round(counter / array.length);
 };
-};
+
 // add your implementation here
 
 module.exports = average;
