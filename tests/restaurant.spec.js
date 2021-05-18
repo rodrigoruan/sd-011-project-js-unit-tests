@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { create } = require('eslint/lib/rules/*');
+// const { create } = require('domain');
 const createMenu = require('../src/restaurant');
  
 /*
