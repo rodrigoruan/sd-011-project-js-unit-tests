@@ -79,31 +79,41 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const objectResult = {};
+const restaurant = {};
 
-const pay = () => {
-  let sum = 0;
-  for (let index = 0; index < objectResult.consumption.length; index += 1) {
-    if (Object.keys(objectResult.fetchMenu.drink).includes(objectResult.consumption[index])) {
-      sum += objectResult.fetchMenu.drink[objectResult.consumption[index]];
+const orderFromMenu = (request) => {
+  restaurant.consumption.push(request);
+  return restaurant.consumption;
+};
+
+const calcTotal = () => {
+  let totalToPay = 0;
+  const menuList = restaurant.consumption;
+  const foods = Object.keys(restaurant.fetchMenu().food);
+  const drinks = Object.keys(restaurant.fetchMenu().drink);
+  const foodsValues = Object.values(restaurant.fetchMenu().food);
+  const drinksValues = Object.values(restaurant.fetchMenu().drink);
+  let count = 0;
+  for (let index = 0; index < menuList.length; index += 1) {
+    if (foods.includes(menuList[index])) {
+      const getIndex = foods.indexOf(menuList[index]);
+      totalToPay += foodsValues[getIndex];
+    } else if (drinks.includes(menuList[index])) {
+      const getIndex = drinks.indexOf(menuList[index]);
+      totalToPay += drinksValues[getIndex];
     }
-    if (Object.keys(objectResult.fetchMenu.food).includes(objectResult.consumption[index])) {
-      sum += objectResult.fetchMenu.food[objectResult.consumption[index]];
-    }
+    count += 1;
   }
-  return sum * 1.1;
+  totalToPay = parseFloat(totalToPay * 1.1).toPrecision(4);
+  return totalToPay;
 };
 
-const createMenu = (param) => {
-  objectResult.fetchMenu = param;
-  objectResult.consumption = [];
-  objectResult.order = (request) => {
-    objectResult.consumption.push(request);
-  };
-  objectResult.pay = pay();
-  return objectResult;
+const createMenu = (myMenu) => {
+  restaurant.fetchMenu = () => myMenu;
+  restaurant.consumption = [];
+  restaurant.order = orderFromMenu;
+  restaurant.pay = calcTotal;
+  return restaurant;
 };
-
-console.log(createMenu());
 
 module.exports = createMenu;
