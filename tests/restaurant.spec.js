@@ -49,6 +49,7 @@ const createMenu = require('../src/restaurant');
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
+    const anyObject = { food: {}, drink: {} };
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     let objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
@@ -57,12 +58,12 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
     // ```
-    const object = createMenu({ food: {}, drink: {} }).fetchMenu();
+    const object = createMenu(anyObject).fetchMenu();
     assert.deepStrictEqual(Object.keys(object), ['food', 'drink']);
     // ```
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
-    assert.deepStrictEqual({ food: {}, drink: {} }, createMenu({ food: {}, drink: {} }).fetchMenu());
+    assert.deepStrictEqual(anyObject, createMenu(anyObject).fetchMenu());
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -97,14 +98,12 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
-    objetoRetornado.order('coxinha', objetoRetornado);
-    objetoRetornado.order('agua', objetoRetornado);
-    objetoRetornado.order('coxinha', objetoRetornado);
-    assert.deepStrictEqual(objetoRetornado.consumption, [
-      'coxinha',
-      'agua',
-      'coxinha',
-    ]); // Retorno: ['coxinha', 'agua', 'coxinha']
+    const testRepeat = createMenu(createMenu(anyObject));
+    testRepeat.order('coxinha');
+    testRepeat.order('agua');
+    testRepeat.order('coxinha');
+    assert.deepStrictEqual(testRepeat.consumption, ['coxinha', 'agua', 'coxinha']);
+     // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
