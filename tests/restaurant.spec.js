@@ -85,10 +85,12 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
     // objetoRetornado.order("coxinha");
-    objetoRetornado.order('agua', objetoRetornado);
-    objetoRetornado.order('sopa', objetoRetornado);
-    objetoRetornado.order('sashimi', objetoRetornado);
-    assert.deepStrictEqual(objetoRetornado.consumption.length, 3);
+    const testOrder = createMenu({ food: {}, drink: {} });
+    testOrder.order("coxinha");
+    testOrder.order("agua");
+    testOrder.order("sopa");
+    testOrder.order("sashimi");
+    assert.deepStrictEqual(testOrder.consumption, ['coxinha', 'agua', 'sopa', 'sashimi']);
     // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
     // Agora faça o TESTE 7 deste arquivo.
