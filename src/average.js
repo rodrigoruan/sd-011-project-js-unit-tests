@@ -12,14 +12,14 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
+const average = (anyArray) => {
   let counter = 0;
-  if (array.length === 0) return undefined;
-  for (let index = 0; index < array.length; index += 1) {
-    if (typeof (array[index]) !== 'number') return undefined;
-    counter += array[index];
+  if (anyArray.length === 0) return undefined;
+  for (let index = 0; index < anyArray.length; index += 1) {
+    if (typeof (anyArray[index]) !== 'number') return undefined;
+    counter += anyArray[index];
   }
-  return Math.round(counter / array.length);
+  return Math.round(counter / anyArray.length);
 };
 
 // add your implementation here
