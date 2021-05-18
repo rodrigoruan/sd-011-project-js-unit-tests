@@ -62,10 +62,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
-    objetoRetornado = createMenu({ Capuccino: '' });
-    assert.deepStrictEqual(objetoRetornado.fetchMenu(), {
-      object: { Capuccino: '' },
-    });
+    assert.deepStrictEqual({ food: {}, drink: {} }, createMenu({ food: {}, drink: {} }).fetchMenu());
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
